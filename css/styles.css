@@ -3959,9 +3959,9 @@ input[type="button"].btn--primary:focus {
  *
  * ------------------------------------------------------------------- */
 .s-portfolio {
-    background-color: var(--color-gray-1);
-    padding-top: calc(6 * var(--space));
-    padding-bottom: var(--vspace-5);
+    padding-top: 16rem;
+    padding-bottom: 16rem;
+    background-color: var(--color-gray-19);
 }
 
 .s-portfolio h3 {
@@ -4056,85 +4056,172 @@ input[type="button"].btn--primary:focus {
     transform: scale(1.05);
 }
 
+.folio-item span {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    color: var(--color-text);
+}
+
+.column.folio-item span {
+    color: var(--color-orange);
+    font-weight: 500;
+}
+
+@media screen and (max-width: 800px) {
+    .column.folio-item {
+        width: 48%;
+        margin: 0 1% 2rem;
+    }
+}
+
+
+
 /* ------------------------------------------------------------------- 
  * ## modal popup
  * ------------------------------------------------------------------- */
 .modal-popup {
     max-width: 680px;
-    background-color: white;
-    font-size: calc(var(--text-size) * 0.9444);
-    line-height: 1.647;
-    overflow-y: auto;
-    position: relative;
+    background-color: var(--color-gray-19);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    text-align: center;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-popup img {
-    margin-bottom: var(--vspace-0_5);
-}
-
-.modal-popup h5 {
-    margin-top: 0;
+    display: block;
+    margin: 0 auto 1.5rem;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: cover;
+    border-radius: 4px;
+    background-color: var(--color-gray-19);
 }
 
 .modal-popup__desc {
-    padding: 0 4rem 1.2rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.modal-popup__desc h5 {
+    color: #FF6B35; /* Orange color for project name */
+    font-size: 1.8rem;
+    margin: 0 0 1rem;
+    font-weight: 600;
+}
+
+.modal-popup__desc p {
+    color: var(--color-white);
+    margin: 0 auto 1rem;
+    text-align: center;
+    max-width: 80%;
+    line-height: 1.5;
+    font-weight: normal; /* Remove bold style */
 }
 
 .modal-popup__cat {
-    list-style: none;
-    margin-left: 0;
-    font-size: var(--text-sm);
-    line-height: var(--vspace-0_5);
-    color: var(--color-text-light);
-    padding-left: calc(0.875 * var(--space));
-    position: relative;
-}
-
-.modal-popup__cat::before {
-    content: "";
-    display: block;
-    height: calc(0.625 * var(--space));
-    width: calc(0.625 * var(--space));
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    background-image: url(../images/icons/icon-tag.svg);
-    position: absolute;
-    left: 0;
-    top: -0.15em;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .modal-popup__cat li {
-    display: inline;
-    padding-left: 0;
-}
-
-.modal-popup__cat li::after {
-    content: ", ";
-}
-
-.modal-popup__cat li:last-child::after {
-    display: none;
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
 }
 
 .modal-popup__details {
-    background-color: rgb(8 97 141);
-    font-size: var(--text-sm);
-    line-height: calc(var(--vspace-1_5) - 2px);
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    color: white;
-    border-radius: var(--border-radius);
-    padding: 0 1.4rem;
-    position: absolute;
-    bottom: var(--vspace-1_25);
-    right: 2rem;
+    display: inline-block;
+    background-color: #FF6B35; /* Orange color for button */
+    color: var(--color-white);
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-.modal-popup__details:hover, 
-.modal-popup__details:focus {
-    background-color: var(--color-1);
-    border-color: var(--color-1);
-    color: white;
+.modal-popup__details:hover {
+    background-color: #FF8C42; /* Lighter orange on hover */
+    transform: translateY(-2px);
+}
+
+@media screen and (max-width: 800px) {
+    .modal-popup {
+        padding: 1rem;
+        margin: 1rem auto;
+        min-height: auto;
+    }
+
+    .modal-popup img {
+        margin: 0 auto 1rem;
+        width: 100%;
+        height: auto;
+        max-height: none;
+        object-fit: fill;
+    }
+
+    .modal-popup__desc {
+        margin: 0 auto 1rem;
+        padding: 1rem;
+    }
+
+    .modal-popup__desc h5 {
+        font-size: 1.3rem;
+        margin: 0 0 0.8rem;
+    }
+
+    .modal-popup__desc p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .modal-popup {
+        padding: 0.8rem;
+    }
+
+    .modal-popup img {
+        margin: 0 auto 0.8rem;
+        width: 100%;
+        height: auto;
+        max-height: none;
+        object-fit: fill;
+    }
+
+    .modal-popup__desc h5 {
+        font-size: 1.2rem;
+    }
+
+    .modal-popup__cat li {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
 
 
@@ -4710,5 +4797,211 @@ input[type="button"].btn--primary:focus {
     }
     .s-footer__social li {
         margin-right: 1.4rem;
+    }
+}
+
+/* =================================================================== 
+ * # certificates
+ *
+ * ------------------------------------------------------------------- */
+.s-certificates {
+    padding-top: 16rem;
+    padding-bottom: 16rem;
+    background-color: var(--color-gray-19);
+}
+
+.s-certificates__header {
+    margin-bottom: 6rem;
+}
+
+.certificates-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.certificates-item {
+    flex: 1;
+    min-width: 250px;
+    background-color: var(--color-white);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificates-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.certificates-item__content {
+    padding: 3rem;
+}
+
+.certificates-item__content h4 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-dark);
+}
+
+.certificates-item__content p {
+    font-size: 1.5rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+}
+
+.certificates-item__link {
+    display: inline-block;
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.certificates-item__link:hover {
+    color: var(--color-primary-dark);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+    .certificates-item {
+        min-width: calc(50% - 3rem);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .certificates-item {
+        min-width: 100%;
+    }
+    
+    .s-certificates {
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+    }
+}
+
+/* Certificate Modal Styles */
+.certificate-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+    padding: 2rem;
+}
+
+.certificate-modal[hidden] {
+    display: none;
+}
+
+.certificate-modal__content {
+    position: relative;
+    margin: auto;
+    max-width: 800px;
+    width: 100%;
+    animation: modalFadeIn 0.3s ease;
+}
+
+.certificate-modal__content img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.certificate-modal__close {
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.certificate-modal__close:hover {
+    color: var(--color-primary);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive styles for modals */
+@media screen and (max-width: 768px) {
+    .certificate-modal {
+        padding: 1rem;
+    }
+
+    .certificate-modal__close {
+        right: 0;
+        top: -30px;
+    }
+
+    .certificate-modal__content {
+        max-width: 100%;
+    }
+}
+
+.s-certificates__header h3 {
+    color: var(--color-white);
+}
+
+.s-portfolio__header h3 {
+    color: var(--color-white);
+}
+
+.column.folio-item {
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.folio-item__thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    background-color: var(--color-gray-19);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.folio-item__thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.folio-item span {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width: 800px) {
+    .column.folio-item {
+        width: 48%;
+        margin: 0 1% 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .column.folio-item {
+        width: 100%;
+        margin: 0 0 2rem;
     }
 }
