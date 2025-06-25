@@ -17,6 +17,9 @@
     ================================================== -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/vendor.css">
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 
     <!-- script
     ================================================== -->
@@ -226,32 +229,93 @@
             </div>
             <div class="column large-9 tab-12">
                 <div class="resume-block">
-                    <ul class="skill-bars-fat">
-                        <li>
-                        <div class="progress percent85"></div>
-                        <strong>HTML CSS Javascript</strong>
-                        </li>
-                        <li>
-                        <div class="progress percent85"></div>
-                        <strong>Java</strong>
-                        </li>
-                        <li>
-                        <div class="progress percent80"></div>
-                        <strong>ASP dot NET</strong>
-                        </li>
-                        <li>
-                        <div class="progress percent85"></div>
-                        <strong>React JS, Node JS, Express JS</strong>
-                        </li>
-                        <li>
-                        <div class="progress percent90"></div>
-                        <strong>sql server management studio</strong>
-                        </li>
-                        <li>
-                        <div class="progress percent80"></div>
-                        <strong>MongoDB</strong>
-                        </li>
-                    </ul>
+                    <div id="skills" class="s-skills target-section">
+                        <!-- <div class="row s-skills__header">
+                            <div class="column large-12">
+                            <h3 class="section-header-allcaps">Skills</h3>
+                            </div>
+                        </div> -->
+
+                        <div class="skills-container">
+                            <!-- Core Technologies -->
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/html.png" alt="HTML" class="skill-logo" />
+                            <p class="skill-text">HTML</p>
+                            </div>
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/css.png" alt="CSS" class="skill-logo" />
+                            <p class="skill-text">CSS</p>
+                            </div>
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/javascript.png" alt="JavaScript" class="skill-logo" />
+                            <p class="skill-text">JavaScript</p>
+                            </div>
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/java.png" alt="Java" class="skill-logo" />
+                            <p class="skill-text">Java</p>
+                            </div>
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/python.png" alt="Python" class="skill-logo" />
+                            <p class="skill-text">Python</p>
+                            </div>
+
+                            <!-- Frameworks and Libraries -->
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/reactjs.png" alt="ReactJS" class="skill-logo" />
+                            <p class="skill-text">React JS</p>
+                            </div>
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/nodejs.png" alt="NodeJS" class="skill-logo" />
+                            <p class="skill-text">Node JS</p>
+                            </div>
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/expressjs.png" alt="ExpressJS" class="skill-logo" />
+                            <p class="skill-text">Express JS</p>
+                            </div>
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/mongodb.png" alt="MongoDB" class="skill-logo" />
+                            <p class="skill-text">MongoDB</p>
+                            </div>
+
+                            <!-- Databases -->
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/sql.png" alt="SQL" class="skill-logo" />
+                            <p class="skill-text">SQL</p>
+                            </div>
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/sqlserver.jpg" alt="SQL Server" class="skill-logo" />
+                            <p class="skill-text">SQL Server</p>
+                            </div>
+
+                            <!-- .NET Stack -->
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/aspnet.png" alt="ASP.NET" class="skill-logo" />
+                            <p class="skill-text">ASP.NET</p>
+                            </div>
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/aspnetmvc.jpg" alt="ASP.NET MVC" class="skill-logo" />
+                            <p class="skill-text">ASP.NET MVC</p>
+                            </div>
+
+                            <!-- Python Libraries -->
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/numpy.png" alt="NumPy" class="skill-logo" />
+                            <p class="skill-text">NumPy</p>
+                            </div>
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/pandas.png" alt="Pandas" class="skill-logo" />
+                            <p class="skill-text">Pandas</p>
+                            </div>
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/matplotlib.jpeg" alt="Matplotlib" class="skill-logo" />
+                            <p class="skill-text">Matplotlib</p>
+                            </div>
+                            <div class="glass-card" data-aos="fade-up">
+                            <img src="images/skills/sklearn.png" alt="Scikit-learn" class="skill-logo" />
+                            <p class="skill-text">Scikit-learn</p>
+                            </div>
+                        </div>
+                    </div>
 
                 </div> <!-- end resume-block -->
 
@@ -270,7 +334,7 @@
         </div>
 
         <div class="row block-large-1-4 block-medium-1-3 block-tab-1-2 block-500-stack certificates-list">
-            <div class="column certificates-item">
+            <div class="column certificates-item ">
                 <div class="certificates-item__content">
                     <h4>Python for Data Science</h4>
                     <p>NPTEL - 2024</p>
@@ -507,6 +571,17 @@
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,   // animation speed
+            once: false,     // ❗ animate every time it comes into view
+            mirror: true     // (optional) animate out when scrolling up
+        });
+    </script>
+    
+
 
 </body>
 

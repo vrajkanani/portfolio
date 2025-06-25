@@ -5005,3 +5005,64 @@ input[type="button"].btn--primary:focus {
         margin: 0 0 2rem;
     }
 }
+
+/* my style */
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1140px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.glass-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(255, 255, 255, 0.05);
+}
+
+.skill-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.skill-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+/* Mobile fix: 2 per row */
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.glass-card {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
