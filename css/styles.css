@@ -4853,13 +4853,13 @@ input[type="button"].btn--primary:focus {
 .certificates-item__link {
     display: inline-block;
     font-size: 1.4rem;
-    color: var(--color-primary);
+    color: black;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .certificates-item__link:hover {
-    color: var(--color-primary-dark);
+    color: rgb(237, 88, 14);
 }
 
 /* Responsive styles */
@@ -5065,4 +5065,15 @@ input[type="button"].btn--primary:focus {
 
 [data-aos].aos-animate {
   opacity: 1;
+}
+
+.certificate-image {
+  display: block;         /* eliminates inline spacing issues */
+  margin-bottom: 0;       /* removes extra space after image */
+}
+
+.certificates-item__content h4 {
+  margin-top: 8px;        /* small top margin so it's close to image */
+  margin-bottom: 4px;     /* controls spacing to description */
+  line-height: 1.2;       /* tighter lines for compact look */
 }
