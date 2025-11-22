@@ -1,602 +1,289 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
+
 <head>
-
-    <!--- basic page needs
-    ================================================== -->
     <meta charset="utf-8">
-    <title>vraj kanani portfolio</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
+    <title>Vraj Kanani | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS
-    ================================================== -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <!-- AOS CSS -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-
-    <!-- script
-    ================================================== -->
-    <script defer src="js/vendor/fontawesome/all.min.js"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <script>
-    // Disable right-click
-    document.addEventListener("contextmenu", function (event) {
-      event.preventDefault();
-    });
-
-    // Disable Ctrl+U
-    document.addEventListener("keydown", function (event) {
-      if (event.ctrlKey && event.key.toLowerCase() === "u") {
-        event.preventDefault();
-      }
-    });
-  </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="icon" type="image/png" href="favicon-32x32.png"> -->
 </head>
 
-<body id="top" class="ss-preload">
+<body id="top">
 
-
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader"></div>
+    <div class="fixed-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
 
-
-    <!-- header
-    ================================================== -->
     <header class="s-header">
-        <div class="row s-header__nav-wrap">
-            <nav class="s-header__nav">
+        <div class="s-header__menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="s-header__nav-wrap">
+            <div class="s-header__nav">
                 <ul>
                     <li class="current"><a class="smoothscroll" href="#hero">Home</a></li>
-                    <li><a class="smoothscroll" href="#about">Resume</a></li>
+                    <li><a class="smoothscroll" href="#about">About</a></li>
+                    <li><a class="smoothscroll" href="#experience">Experience</a></li>
+                    <li><a class="smoothscroll" href="#resume">Education</a></li>
                     <li><a class="smoothscroll" href="#portfolio">Projects</a></li>
-                    <li><a class="smoothscroll" href="#contact">Say Hello</a></li>
+                    <li><a class="smoothscroll" href="#contact">Contact</a></li>
                 </ul>
-            </nav>
-        </div> <!-- end row -->
-        
-        <a class="s-header__menu-toggle" href="#0" title="Menu">
-            <span class="s-header__menu-icon"></span>
-        </a>
-    </header> <!-- end s-header -->
+            </div>
+        </nav>
+    </header>
 
-
-    <!-- hero
-    ================================================== -->
     <section id="hero" class="s-hero target-section">
-
-        <div class="s-hero__bg rellax" data-rellax-speed="-7"></div>
-
         <div class="row s-hero__content">
             <div class="column">
+                <h1 data-aos="fade-up">I'm Vraj Kanani.</h1>
+                <h3 data-aos="fade-up" data-aos-delay="100">
+                    A seasoned Full stack <span>Web Developer</span> & <span>Designer</span> crafting compelling visual
+                    identities worldwide.
+                </h3>
 
-                <div class="s-hero__content-about">
-
-                    <h1>I'm Vraj Kanani.</h1>
-
-                    <h3>
-                    ​As a seasoned Full stack <span>web developer</span> and <span>designer</span>, I specialize in crafting compelling and efficient visual identities for businesses worldwide. Explore my <a class="smoothscroll" href="#portfolio">work</a>. to discover how I can elevate your company's online presence.
-                    </h3>
-
-                    <div class="s-hero__content-social">
-                        <!-- <a href="#0"><i class="fab fa-facebook-square" aria-hidden="true"></i></a> -->
-                        <!-- <a href="#0"><i class="fab fa-twitter" aria-hidden="true"></i></a> -->
-                        <a href="https://www.instagram.com/vraj_1108/"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <!-- <a href="#0"><i class="fab fa-dribbble" aria-hidden="true"></i></a> -->
-                        <!-- <a href="#0"><i class="fab fa-behance" aria-hidden="true"></i></a> -->
-                        <a href="https://www.linkedin.com/in/kanani-vraj"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="https://github.com/vrajkanani"><i class="fab fa-github" aria-hidden="true"></i></a>
-
-                    </div>
-
-                </div> <!-- end s-hero__content-about -->
-
-            </div>
-        </div> <!-- s-hero__content -->
-
-        <div class="s-hero__scroll">
-            <a href="#about" class="s-hero__scroll-link smoothscroll">
-                <span class="scroll-arrow">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M18.707 12.707L17.293 11.293 13 15.586 13 6 11 6 11 15.586 6.707 11.293 5.293 12.707 12 19.414z"></path></svg>
-                </span>
-                <span class="scroll-text">Scroll Down</span>
-            </a>
-        </div> <!-- s-hero__scroll -->
-
-    </section> <!-- end s-hero -->
-
-
-    <!-- about
-    ================================================== -->
-    <section id="about" class="s-about target-section">
-
-        <div class="row">
-            <div class="column large-3 tab-12">
-                <img class="s-about__pic" src="images/avatars/vraj.jpg" alt="">
-            </div>
-            <div class="column large-9 tab-12 s-about__content">
-                <h3>About Me</h3>
-                <p>
-                    Ambitious web development enthusiast looking for
-                    entry-level role to leverage solid academic
-                    foundation and real-world experience. Ready to be
-                    part of creating scalable, user-centric applications
-                    and investigate cloud innovation. Fast learner,
-                    committed to ongoing self-improvement, keen on
-                    becoming a valuable team member.
-                    
-                </p>
-
-                <hr>
-
-                <div class="row s-about__content-bottom">
-                    <div class="column w-1000-stack contact-info">
-                        <h3>Contact Details</h3>
-                        <ul>
-                            <li><strong style="color: aliceblue;">Name:</strong> Vraj Kanani</li>
-                            <li><strong style="color: aliceblue;">Phone:</strong> <a href="tel:+919023137816">+91 9023137816</a></li>
-                            <li><strong style="color: aliceblue;">Email:</strong> <a class="mailto" href="mailto:kananivraj733@gmail.com">kananivraj733@gmail.com</a></li>
-                            <li><strong style="color: aliceblue;">Address:</strong> Near Golden Market, Ravapar Road, Morbi, 363641 IND</li>
-                        </ul>
-                    </div>
-
-
-                    <div class="column w-1000-stack">
-                        <a href="resume.pdf" download="resume.pdf" class="btn btn--download">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:-ms-filter"><path d="M12 16L16 11 13 11 13 4 11 4 11 11 8 11z"></path><path d="M20,18H4v-7H2v7c0,1.103,0.897,2,2,2h16c1.103,0,2-0.897,2-2v-7h-2V18z"></path></svg>
-                            Download CV
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end row -->
-
-    </section> <!-- end s-about -->
-
-
-    <!-- resume
-    ================================================== -->
-    <section id="resume" class="s-resume target-section">
-        <div class="row s-resume__section">
-            <div class="column large-3 tab-12">
-                <h3 class="section-header-allcaps">Education</h3>
-            </div>
-            <div class="column large-9 tab-12">
-                <div class="resume-block">
-
-                    <div class="resume-block__header">
-                        <h4 class="h3">Darshan University</h4>
-                        <p class="resume-block__header-meta">
-                            <span>Bachelor of Technology in Computer Science and Engineering</span> 
-                            <span class="resume-block__header-date">
-                                August 2022 - 2026
-                            </span>
-                        </p>
-                    </div>
-                    <p>
-                        cpi : 8.00
-                    </p>
-                </div> <!-- end resume-block -->
-
-                <div class="resume-block">
-
-                    <div class="resume-block__header">
-                        <h4 class="h3">Shree B.M. Patel School</h4>
-                        <p class="resume-block__header-meta">
-                            <span>Higher Secondary School</span> 
-                            <span class="resume-block__header-date">
-                                April 2021 - 2022
-                            </span>
-                        </p>
-                    </div>
-
-                    <p>
-                        Percentage : 62.00
-                    </p>
-
-                </div> <!-- end resume-block -->
-
-                <div class="resume-block">
-
-                    <div class="resume-block__header">
-                        <h4 class="h3">Shree B.M. Patel School</h4>
-                        <p class="resume-block__header-meta">
-                            <span>Secondary Secondary School</span> 
-                            <span class="resume-block__header-date">
-                                April 2019 - 2020
-                            </span>
-                        </p>
-                    </div>
-
-                    <p>
-                        Percentage : 77.33
-                    </p>
-
-                </div> 
-            </div>
-        </div> <!-- s-resume__section -->
-
-
-        <div class="row s-resume__section">
-            <div class="column large-3 tab-12">
-                <h3 class="section-header-allcaps">Skills</h3>
-            </div>
-            <div class="column large-9 tab-12">
-                <div class="resume-block">
-                    <div id="skills" class="s-skills target-section">
-                        <!-- <div class="row s-skills__header">
-                            <div class="column large-12">
-                            <h3 class="section-header-allcaps">Skills</h3>
-                            </div>
-                        </div> -->
-
-                        <div class="skills-container">
-                            <!-- Core Technologies -->
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/html.png" alt="HTML" class="skill-logo" />
-                            <p class="skill-text">HTML</p>
-                            </div>
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/css.png" alt="CSS" class="skill-logo" />
-                            <p class="skill-text">CSS</p>
-                            </div>
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/javascript.png" alt="JavaScript" class="skill-logo" />
-                            <p class="skill-text">JavaScript</p>
-                            </div>
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/java.png" alt="Java" class="skill-logo" />
-                            <p class="skill-text">Java</p>
-                            </div>
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/python.png" alt="Python" class="skill-logo" />
-                            <p class="skill-text">Python</p>
-                            </div>
-
-                            <!-- Frameworks and Libraries -->
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/reactjs.png" alt="ReactJS" class="skill-logo" />
-                            <p class="skill-text">React JS</p>
-                            </div>
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/nodejs.png" alt="NodeJS" class="skill-logo" />
-                            <p class="skill-text">Node JS</p>
-                            </div>
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/expressjs.png" alt="ExpressJS" class="skill-logo" />
-                            <p class="skill-text">Express JS</p>
-                            </div>
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/mongodb.png" alt="MongoDB" class="skill-logo" />
-                            <p class="skill-text">MongoDB</p>
-                            </div>
-
-                            <!-- Databases -->
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/sql.png" alt="SQL" class="skill-logo" />
-                            <p class="skill-text">SQL</p>
-                            </div>
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/sqlserver.jpg" alt="SQL Server" class="skill-logo" />
-                            <p class="skill-text">SQL Server</p>
-                            </div>
-
-                            <!-- .NET Stack -->
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/aspnet.png" alt="ASP.NET" class="skill-logo" />
-                            <p class="skill-text">ASP.NET</p>
-                            </div>
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/aspnetmvc.jpg" alt="ASP.NET MVC" class="skill-logo" />
-                            <p class="skill-text">ASP.NET MVC</p>
-                            </div>
-
-                            <!-- Python Libraries -->
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/numpy.png" alt="NumPy" class="skill-logo" />
-                            <p class="skill-text">NumPy</p>
-                            </div>
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/pandas.png" alt="Pandas" class="skill-logo" />
-                            <p class="skill-text">Pandas</p>
-                            </div>
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/matplotlib.jpeg" alt="Matplotlib" class="skill-logo" />
-                            <p class="skill-text">Matplotlib</p>
-                            </div>
-                            <div class="glass-card" data-aos="fade-up">
-                            <img src="images/skills/sklearn.png" alt="Scikit-learn" class="skill-logo" />
-                            <p class="skill-text">Scikit-learn</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div> <!-- end resume-block -->
-
-            </div>
-        </div> <!-- s-resume__section -->
-
-    </section> <!-- end s-resume -->
-
-    <!-- certificates
-    ================================================== -->
-     <section id="certificates" class="s-certificates target-section">
-        <div class="row s-certificates__header">
-            <div class="column large-12">
-                <h3 class="section-header-allcaps">Certificates</h3>
-            </div>
-        </div>
-
-        <div class="row block-large-1-4 block-medium-1-3 block-tab-1-2 block-500-stack certificates-list">
-            <div class="column certificates-item ">
-                <div class="certificates-item__content">
-                    <img src="images/certificates/Python for Data Science_page-0001.jpg" alt="Python for Data Science Certificate" class="certificate-image">
-                    <h4>Python for Data Science</h4>
-                    <p>NPTEL - 2024</p>
-                    <a href="images/certificates/Python for Data Science_page-0001.jpg" class="certificates-item__link" target="_blank">View Certificate</a>
-                </div>
-            </div>
-
-            <div class="column certificates-item">
-                <div class="certificates-item__content">
-                      <img src="images/certificates/certificate of jquery_page-0001.jpg" alt="Introduction to jQuery" class="certificate-image">
-                    <h4>Introduction to jQuery</h4>
-                    <p>simplilearn - 2024</p>
-                    <a href="images/certificates/certificate of jquery_page-0001.jpg" class="certificates-item__link" target="_blank">View Certificate</a>
-                </div>
-            </div>
-
-            <div class="column certificates-item">
-                <div class="certificates-item__content">
-                      <img src="images/certificates/certificate of project m_page-0001.jpg" alt="Python for Data Science Certificate" class="certificate-image">
-
-                    <h4>Project Management</h4>
-                    <p>simplilearn - 2024</p>
-                    <a href="images/certificates/certificate of project m_page-0001.jpg" class="certificates-item__link" target="_blank">View Certificate</a>
+                <div class="s-hero__social" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://www.instagram.com/vraj_1108/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/kanani-vraj" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/vrajkanani" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="about" class="s-about target-section">
+        <div class="row" style="align-items: center;">
+            <div class="column large-4 text-center" data-aos="fade-right">
+                <img class="about-img" src="images/avatars/vraj.jpg" alt="Vraj Kanani">
+            </div>
+            <div class="column large-8" data-aos="fade-left">
+                <h3>About Me</h3>
+                <p>
+                    Ambitious web development enthusiast looking for an entry-level role to leverage solid academic
+                    foundation and real-world experience. Ready to be part of creating scalable, user-centric
+                    applications and investigate cloud innovation. Fast learner, committed to ongoing self-improvement,
+                    and keen on becoming a valuable team member.
+                </p>
+                <ul class="contact-list">
+                    <li><i class="fas fa-phone-alt"></i> +91 9023137816</li>
+                    <li><i class="fas fa-envelope"></i> kananivraj733@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Morbi, Gujarat, 363641 IND</li>
+                </ul>
+                <div style="margin-top: 2rem;">
+                    <a href="resume.pdf" class="btn btn--primary" download>Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- portfolio
-    ================================================== -->
+    <section id="experience" class="s-resume target-section">
+        <div class="row">
+            <div class="column text-center">
+                <h3>Experience</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column large-8" style="margin: 0 auto;">
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-up">
+                        <span class="timeline-date">2023 - Present</span>
+                        <h4>Freelance Web Developer</h4>
+                        <h5>Self-Employed</h5>
+                        <p>Specializing in crafting compelling and efficient visual identities for businesses worldwide.
+                            Built full-stack solutions using React, Node.js, and ASP.NET Core.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="s-resume target-section">
+        <div class="row">
+            <div class="column large-6" data-aos="fade-up">
+                <h3>Education</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">Aug 2022 - 2026</span>
+                        <h4>B.Tech in Computer Science</h4>
+                        <h5>Darshan University</h5>
+                        <p>CPI: 8.00</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2021 - 2022</span>
+                        <h4>Higher Secondary School</h4>
+                        <h5>Shree B.M. Patel School</h5>
+                        <p>Percentage: 62.00</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2019 - 2020</span>
+                        <h4>Secondary School</h4>
+                        <h5>Shree B.M. Patel School</h5>
+                        <p>Percentage: 77.33</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column large-6" data-aos="fade-up" data-aos-delay="100">
+                <h3>Technical Skills</h3>
+                <div class="skills-wrapper">
+                    <div class="skill-pill"><img src="images/skills/html.png"><span>HTML5</span></div>
+                    <div class="skill-pill"><img src="images/skills/css.png"><span>CSS3</span></div>
+                    <div class="skill-pill"><img src="images/skills/javascript.png"><span>JavaScript</span></div>
+                    <div class="skill-pill"><img src="images/skills/java.png"><span>Java</span></div>
+                    <div class="skill-pill"><img src="images/skills/python.png"><span>Python</span></div>
+                    <div class="skill-pill"><img src="images/skills/reactjs.png"><span>React JS</span></div>
+                    <div class="skill-pill"><img src="images/skills/nodejs.png"><span>Node JS</span></div>
+                    <div class="skill-pill"><img src="images/skills/expressjs.png"><span>Express</span></div>
+                    <div class="skill-pill"><img src="images/skills/mongodb.png"><span>MongoDB</span></div>
+                    <div class="skill-pill"><img src="images/skills/aspnet.png"><span>ASP.NET</span></div>
+                    <div class="skill-pill"><img src="images/skills/sql.png"><span>SQL</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="s-certificates target-section">
+        <div class="row">
+            <div class="column text-center">
+                <h3>Certificates</h3>
+            </div>
+        </div>
+        <div class="row cert-grid">
+            <div class="cert-card" data-aos="fade-up">
+                <img src="images/certificates/Python for Data Science_page-0001.jpg" class="cert-img">
+                <div class="cert-body">
+                    <h4>Python for Data Science</h4>
+                    <p>NPTEL - 2024</p>
+                    <a href="images/certificates/Python for Data Science_page-0001.jpg" target="_blank"
+                        class="btn btn--primary" style="font-size:1.2rem; padding: 5px 15px;">View</a>
+                </div>
+            </div>
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="images/certificates/certificate of jquery_page-0001.jpg" class="cert-img">
+                <div class="cert-body">
+                    <h4>Introduction to jQuery</h4>
+                    <p>Simplilearn - 2024</p>
+                    <a href="images/certificates/certificate of jquery_page-0001.jpg" target="_blank"
+                        class="btn btn--primary" style="font-size:1.2rem; padding: 5px 15px;">View</a>
+                </div>
+            </div>
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="images/certificates/certificate of project m_page-0001.jpg" class="cert-img">
+                <div class="cert-body">
+                    <h4>Project Management</h4>
+                    <p>Simplilearn - 2024</p>
+                    <a href="images/certificates/certificate of project m_page-0001.jpg" target="_blank"
+                        class="btn btn--primary" style="font-size:1.2rem; padding: 5px 15px;">View</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="portfolio" class="s-portfolio target-section">
-
-        <div class="row s-portfolio__header">
-            <div class="column large-12">
-                <h3 class="section-header-allcaps">A Few Of My Latest Creations</h3>
+        <div class="row">
+            <div class="column text-center">
+                <h3>Latest Creations</h3>
             </div>
         </div>
+        <div class="row folio-grid">
 
-        <div class="row collapse block-large-1-4 block-medium-1-3 block-tab-1-2 block-500-stack folio-list" style="display: flex; justify-content: space-between;">
-
-            <div class="column folio-item">
-                <a href="#modal-01" class="folio-item__thumb">
-                    <img src="images/portfolio/club-laminate.png" 
-                         srcset="images/portfolio/club-laminate.png 1x, 
-                                 images/portfolio/club-laminate@2x.png 2x" alt="">
-                </a>
-                <span style="color: #FF9F1C;">club laminate</span>
-            </div> <!-- end folio-item -->
-
-            <div class="column folio-item">
-                <a href="#modal-02" class="folio-item__thumb">
-                    <img src="images/portfolio/iris.png" 
-                         srcset="images/portfolio/iris.png 1x, 
-                                 images/portfolio/iris@2x.png 2x" alt="">
-                </a>
-                <span style="color: #FF9F1C;">Iris Species Prediction</span>
-            </div> <!-- end folio-item -->
-
-            <div class="column folio-item">
-                <a href="#modal-03" class="folio-item__thumb">
-                    <img src="images/portfolio/TaskManagement.png" 
-                         srcset="images/portfolio/TaskManagement.png 1x, 
-                                 images/portfolio/TaskManagement@2x.png 2x" alt="">
-                </a>
-                <span style="color: #FF9F1C;">Task Management</span>
-            </div> <!-- end folio-item -->
-        </div> <!-- end folio-list -->
-
-
-        <!-- Modal Templates Popup
-        =========================================================== -->
-        <div id="modal-01" hidden>
-            <div class="modal-popup">
-                <img src="images/portfolio/club-laminate@2x.png" alt="" />
-    
-                <div class="modal-popup__desc">
-                    <h5>Club Laminate</h5>
-                    <p>This website is where laminate could be bought
-                        online. All the orders like pending orders or
-                        completed order history are visible to the
-                        admin. A user can also contact admin through
-                        the site, and the admin can reply in the specific
-                        user's email.
-                        </p>                        
-                    <ul class="modal-popup__cat">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>Java Script</li>
-                        <li>ReactJS</li>
-                        <li>NodeJS</li>
-                        <li>ExpressJS</li>
-                        <li>MongoDB</li>
-                    </ul>
+            <div class="folio-card" data-aos="zoom-in">
+                <img src="images/portfolio/club-laminate.png" class="folio-img" alt="Club Laminate">
+                <div class="folio-overlay">
+                    <h4 class="folio-title">Club Laminate</h4>
+                    <p class="folio-desc">Online laminate store with full admin panel functionality.</p>
+                    <div class="folio-tech">
+                        <span>ReactJS</span>
+                        <span>NodeJS</span>
+                        <span>MongoDB</span>
+                    </div>
+                    <a href="https://club-laminate.vercel.app/" target="_blank" title="View Project">
+                        <i class="fas fa-external-link-alt folio-link-icon"></i>
+                    </a>
                 </div>
-    
-                <a href="https://club-laminate.vercel.app/" class="modal-popup__details" target="_blank">Project link</a>
             </div>
-        </div> <!-- end modal club-laminate -->
 
-        <div id="modal-02" hidden>
-            <div class="modal-popup">
-                <img src="images/portfolio/iris@2x.png" alt="" />
-    
-                <div class="modal-popup__desc">
-                    <h5>Iris Species Prediction</h5>
-                    <p>Created an interactive web app for predicting
-                        Iris flower species with Python and Streamlit.
-                        The app utilizes a machine learning model
-                        trained on the Iris data, taking four input : Sepal
-                        Length, Sepal Width, Petal Length, and Petal
-                        Width.The users can provide these input to get
-                        real-time predictions of the flower species—
-                        Setosa, Versicolor, or Virginica</p>
-                    <ul class="modal-popup__cat">
-                        <li>Python</li>
-                        <li>Strimlit</li>
-                        <li>Google colab</li>
-                    </ul>
+            <div class="folio-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="images/portfolio/iris.png" class="folio-img" alt="Iris Species Prediction">
+                <div class="folio-overlay">
+                    <h4 class="folio-title">Iris Species Prediction</h4>
+                    <p class="folio-desc">ML app predicting flower species using measurements.</p>
+                    <div class="folio-tech">
+                        <span>Python</span>
+                        <span>Streamlit</span>
+                        <span>ML</span>
+                    </div>
+                    <a href="https://iris-deploy.streamlit.app/" target="_blank" title="View Project">
+                        <i class="fas fa-external-link-alt folio-link-icon"></i>
+                    </a>
                 </div>
-    
-                <a href="https://iris-deploy.streamlit.app/" class="modal-popup__details" target="_blank">Project link</a>
             </div>
-        </div> <!-- end modal Iris Species Prediction -->
 
-        <div id="modal-03" hidden>
-            <div class="modal-popup">
-                <img src="images/portfolio/TaskManagement@2x.png" alt="" />
-    
-                <div class="modal-popup__desc">
-                    <h5>Task Management</h5>
-                    <p>I have made a responsive To Do List Web
-                        application using ASP.NET Core MVC, which will
-                        allow the users to manage their task lists better.
-                        It made use of CRUD operation with ASP.NET
-                        Core Web API and had a very simple Razor views
-                        for the user interface.
-                        </p>
-                    <ul class="modal-popup__cat">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>Java Script</li>
-                        <li>ASP.NET Core MVC</li>
-                        <li>ASP.NET Core Web API</li>
-                    </ul>
+            <div class="folio-card" data-aos="zoom-in" data-aos-delay="200">
+                <img src="images/portfolio/TaskManagement.png" class="folio-img" alt="Task Management">
+                <div class="folio-overlay">
+                    <h4 class="folio-title">Task Management</h4>
+                    <p class="folio-desc">Responsive To-Do List application with CRUD operations.</p>
+                    <div class="folio-tech">
+                        <span>ASP.NET Core</span>
+                        <span>MVC</span>
+                        <span>SQL</span>
+                    </div>
+                    <a href="#" title="View Project">
+                        <i class="fas fa-external-link-alt folio-link-icon"></i>
+                    </a>
                 </div>
-    
-                <!--<a href="https://www.behance.net/" class="modal-popup__details">Project link</a> -->
             </div>
-        </div> <!-- end modal task management -->
-    </section> <!-- end s-portfolio -->
 
+        </div>
+    </section>
 
-    <!-- contact
-    ================================================== -->
     <section id="contact" class="s-contact target-section">
-
-        <div class="row s-contact__header">
-            <div class="column large-12">
-                <h3 class="section-header-allcaps">Contact</h3>
+        <div class="row">
+            <div class="column text-center">
+                <h2 style="font-size: 3rem; margin-bottom: 2rem;">Let's build something awesome.</h2>
+                <div class="contact-container">
+                    <div class="contact-row">
+                        <div class="contact-box" data-aos="flip-up">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:kananivraj733@gmail.com"><span>kananivraj733@gmail.com</span></a>
+                        </div>
+                        <div class="contact-box" data-aos="flip-up" data-aos-delay="100">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+919023137816"><span>+91 9023137816</span></a>
+                        </div>
+                    </div>
+                    <a href="mailto:kananivraj733@gmail.com" class="btn btn--primary" style="margin-top: 2rem;">Get In
+                        Touch</a>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="row s-contact__content">
-
-            <div class="column large-7 medium-12">
-
-                <h4 class="huge-text">
-                Have a new project in mind? Let's collaborate and build something awesome. 
-                Let's turn that idea to an even greater product :)
-                </h4>
-
-            </div>
-
-            <div class="column large-4 medium-12">
-
-                <div class="row contact-infos">
-                    <div class="column large-12 medium-6 tab-12">
-                        <div class="contact-block">
-                            <h5 class="contact-block__header">
-                                Email
-                            </h5>
-                            <p class="contact-block__content">
-                                <a class="mailtoui" href="mailto:kananivraj733@gmail.com">kananivraj733@gmail.com</a>
-                            </p>
-                        </div> <!-- end contact-block -->
-                    </div>
-                    <div class="column large-12 medium-6 tab-12">
-                        <div class="contact-block">
-                            <h5 class="contact-block__header">
-                                Phone
-                            </h5>
-                            <p class="contact-block__content">
-                                <a href="tel:+91 9023137816">+91 9023137816</a>
-                            </p>
-                        </div> <!-- end contact-block -->
-                    </div>
-
-                    <div class="column large-12">
-                        <a href="mailto:kananivraj733@gmail.com" class="mailtoui btn btn--primary h-full-width">Let's Talk</a>
-                    </div>
-                </div> <!-- end contact-infos -->
-
-            </div>
-        </div> <!-- s-contact__content -->
-
-    </section> <!-- end s-contact -->
-    
-
-    <!-- footer
-    ================================================== -->
     <footer class="s-footer">
         <div class="row">
-            <div class="column large-4 medium-6 w-1000-stack s-footer__social-block">
-                <ul class="s-footer__social">
-                    <!-- <li><a href="#0"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li> -->
-                    <li><a href="https://www.instagram.com/vraj_1108/"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                    <li><a href="https://github.com/vrajkanani"><i class="fab fa-github" aria-hidden="true"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/kanani-vraj"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
-                </ul>
+            <div class="social-links" style="display:flex;">
+                <a href="https://www.instagram.com/vraj_1108/"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/vrajkanani"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kanani-vraj"><i class="fab fa-linkedin-in"></i></a>
             </div>
-
-            <div class="column large-7 medium-6 w-1000-stack ss-copyright">
-                <span>© Copyright vraj kanani 2024</span> 
-                <span>Design by <a href="#">vraj</a></span>
-            </div>
+            <div><span>© 2024 Vraj Kanani</span></div>
         </div>
-
-        <div class="ss-go-top">
-            <a class="smoothscroll" title="Back to Top" href="#top">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 4h12v2H6zm5 10v6h2v-6h5l-6-6-6 6z"/></svg>
-             </a>
-        </div> <!-- end ss-go-top -->
     </footer>
 
+    <a href="#top" class="go-top smoothscroll"><i class="fas fa-arrow-up"></i></a>
 
-    <!-- Java Script
-    ================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-    <!-- AOS JS -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 700,   // animation speed
-            once: false,     // ❗ animate every time it comes into view
-            mirror: true     // (optional) animate out when scrolling up
-        });
-    </script>
-    
 </body>
 
 </html>
-
-
