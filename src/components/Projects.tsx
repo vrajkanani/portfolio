@@ -193,9 +193,9 @@ export default function Projects() {
                         <AnimatePresence>
                           {hoveredTech === `${project.title}-${tech.name}` && (
                             <motion.div
-                              initial={{ opacity: 0, y: 15, scale: 0.8, filter: "blur(4px)" }}
-                              animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                              exit={{ opacity: 0, y: 10, scale: 0.8, filter: "blur(4px)" }}
+                              initial={{ opacity: 0, y: 15, scale: 0.8 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 10, scale: 0.8 }}
                               transition={{ duration: 0.3, type: "spring", stiffness: 400, damping: 25 }}
                               className="absolute -top-14 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1.5 bg-[var(--text-primary)]/90 backdrop-blur-xl border border-white/10 text-[var(--bg-base)] text-xs font-bold rounded-lg shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] z-20 pointer-events-none"
                             >
@@ -209,7 +209,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 pt-6 border-t border-[var(--glass-border)]">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-6 border-t border-[var(--glass-border)]">
                   {project.hasLiveDemo ? (
                     <>
                       <a href="#" className="flex-1 liquid-glass-pill py-2.5 text-center text-sm font-bold text-[var(--accent-1)] bg-[var(--accent-1)]/10 border border-[var(--accent-1)]/30 hover:bg-[var(--accent-1)]/20 hover:border-[var(--accent-1)]/50 transition-all shadow-lg shadow-[var(--accent-1)]/10">
@@ -222,9 +222,9 @@ export default function Projects() {
                   ) : (
                     <>
                       {project.githubLinks.map(link => (
-                        <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 liquid-glass-pill py-2.5 text-center text-sm font-bold text-[var(--text-primary)] bg-[var(--chip-bg)] border border-[var(--glass-border)] hover:text-[var(--accent-1)] hover:border-[var(--accent-1)]/30 transition-all shadow-sm">
-                          <SiGithub size={18} />
-                          <span>{link.label}</span>
+                        <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 liquid-glass-pill px-4 py-2.5 text-center text-sm font-bold text-[var(--text-primary)] bg-[var(--chip-bg)] border border-[var(--glass-border)] hover:text-[var(--accent-1)] hover:border-[var(--accent-1)]/30 transition-all shadow-sm">
+                          <SiGithub size={18} className="shrink-0" />
+                          <span className="whitespace-nowrap">{link.label}</span>
                         </a>
                       ))}
                     </>

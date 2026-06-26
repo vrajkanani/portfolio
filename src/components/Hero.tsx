@@ -17,6 +17,7 @@ const MarqueeRow = ({ items, reverse = false, speed = 20 }: { items: string[], r
       className="flex gap-4 pr-4"
       animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
       transition={{ duration: speed, repeat: Infinity, ease: "linear" }}
+      style={{ willChange: "transform", transform: "translateZ(0)" }}
     >
       {[...items, ...items, ...items].map((tech, i) => (
         <span key={`${tech}-${i}`} className="liquid-glass liquid-glass-pill px-4 py-2 text-sm font-semibold text-[var(--text-secondary)] whitespace-nowrap block shadow-sm">
@@ -64,9 +65,9 @@ export default function Hero() {
   };
 
   const itemVars = {
-    hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+    hidden: { opacity: 0, y: 20 },
     show: {
-      opacity: 1, y: 0, filter: "blur(0px)",
+      opacity: 1, y: 0,
       transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
     },
   };
@@ -104,9 +105,10 @@ export default function Hero() {
           {/* CTA Buttons */}
           <motion.div variants={itemVars} className="flex flex-wrap items-center gap-4 mt-2">
             {/* Primary: iOS-style solid button with specular arc */}
-            <Link
+            <a
               href="/resume_vraj_kanani.pdf"
               target="_blank"
+              rel="noopener noreferrer"
               className="relative px-6 py-3 rounded-full text-white font-semibold flex items-center gap-2 overflow-hidden select-none"
               style={{
                 background: "var(--accent-gradient)",
@@ -128,7 +130,7 @@ export default function Hero() {
               />
               <Download size={17} className="relative z-10" />
               <span className="relative z-10">Download Resume</span>
-            </Link>
+            </a>
 
             {/* Secondary: liquid glass */}
             <Link

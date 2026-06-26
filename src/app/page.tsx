@@ -1,13 +1,16 @@
+import dynamic from "next/dynamic";
 import Background from "@/components/Background";
 import LoadingAnimation from "@/components/LoadingAnimation";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Education from "@/components/Education";
-import Skills from "@/components/Skills";
-import Certificates from "@/components/Certificates";
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
+
+// Lazy-load everything below the fold — reduces initial JS bundle & TBT dramatically
+const About        = dynamic(() => import("@/components/About"));
+const Experience   = dynamic(() => import("@/components/Experience"));
+const Education    = dynamic(() => import("@/components/Education"));
+const Skills       = dynamic(() => import("@/components/Skills"));
+const Certificates = dynamic(() => import("@/components/Certificates"));
+const Projects     = dynamic(() => import("@/components/Projects"));
+const Contact      = dynamic(() => import("@/components/Contact"));
 
 export default function Home() {
   return (

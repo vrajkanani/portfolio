@@ -13,9 +13,9 @@
   --glass-blur: blur(28px);
 
   /* Accent (Apple-like blue → violet gradient) */
-  --accent-1: #0A84FF;   
-  --accent-2: #5E5CE6;   
-  --accent-3: #FF375F;   
+  --accent-1: #0A84FF;
+  --accent-2: #5E5CE6;
+  --accent-3: #FF375F;
   --accent-gradient: linear-gradient(135deg, #0A84FF 0%, #5E5CE6 100%);
 
   /* Text */
@@ -49,6 +49,7 @@ body {
   background: rgba(94, 92, 230, 0.4);
   color: #ffffff;
 }
+
 ::-moz-selection {
   background: rgba(94, 92, 230, 0.4);
   color: #ffffff;
@@ -63,10 +64,14 @@ body {
   backdrop-filter: blur(28px) saturate(220%);
   -webkit-backdrop-filter: blur(28px) saturate(220%);
   box-shadow:
-    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.95),  /* top inner highlight */
-    inset 0 -6px 14px rgba(0, 0, 0, 0.04),            /* bottom depth shadow */
-    0 8px 32px rgba(31, 38, 135, 0.06),              /* outer drop shadow */
-    0 1px 0 rgba(255,255,255,0.8) inset;             /* crisp top edge */
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.95),
+    /* top inner highlight */
+    inset 0 -6px 14px rgba(0, 0, 0, 0.04),
+    /* bottom depth shadow */
+    0 8px 32px rgba(31, 38, 135, 0.06),
+    /* outer drop shadow */
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  /* crisp top edge */
   overflow: hidden;
   border-radius: 28px;
 }
@@ -79,11 +84,9 @@ body {
   left: 5%;
   width: 90%;
   height: clamp(10px, 20%, 30px);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.45) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0) 100%);
   border-radius: 50% 50% 100% 100% / 60% 60% 100% 100%;
   pointer-events: none;
   filter: blur(2px);
@@ -159,11 +162,9 @@ body {
   left: 8%;
   width: 84%;
   height: 50%;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.45) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0) 100%);
   border-radius: 50% 50% 100% 100% / 60% 60% 100% 100%;
   pointer-events: none;
   filter: blur(1px);
@@ -197,11 +198,9 @@ body {
   left: 8%;
   width: 84%;
   height: 50%;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0) 100%);
   border-radius: 50% 50% 100% 100% / 60% 60% 100% 100%;
   pointer-events: none;
   filter: blur(2px);
@@ -220,17 +219,15 @@ body {
 }
 
 .text-frosted-glass {
-  background: linear-gradient(
-    135deg,
-    #0A84FF 0%,
-    #60BFFF 20%,
-    #ffffff 32%,
-    #0A84FF 44%,
-    #5E5CE6 70%,
-    #a8a0ff 82%,
-    #ffffff 90%,
-    #5E5CE6 100%
-  );
+  background: linear-gradient(135deg,
+      #0A84FF 0%,
+      #60BFFF 20%,
+      #ffffff 32%,
+      #0A84FF 44%,
+      #5E5CE6 70%,
+      #a8a0ff 82%,
+      #ffffff 90%,
+      #5E5CE6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -242,6 +239,7 @@ body {
    SCROLL REVEAL ANIMATION HELPERS
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
+
   .liquid-glass,
   .glass-panel,
   .glass-panel-strong,
@@ -272,4 +270,61 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(10, 132, 255, 0.5);
+}
+
+/* ============================================
+   BACKGROUND BLOB ANIMATIONS (GPU compositor)
+   ============================================ */
+@keyframes bgBlob1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(100px, 50px) rotate(30deg);
+  }
+
+  66% {
+    transform: translate(50px, 25px) rotate(60deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes bgBlob2 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(-80px, -60px) rotate(-30deg);
+  }
+
+  66% {
+    transform: translate(-40px, -30px) rotate(-60deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes bgBlob3 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(50px, -100px) scale(1.05);
+  }
+
+  66% {
+    transform: translate(25px, -50px) scale(1.1);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
 }

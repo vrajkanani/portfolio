@@ -117,9 +117,9 @@ export default function Skills() {
                     <AnimatePresence>
                       {hoveredSkill === skill.name && (
                         <motion.div
-                          initial={{ opacity: 0, y: 15, scale: 0.8, filter: "blur(4px)" }}
-                          animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                          exit={{ opacity: 0, y: 10, scale: 0.8, filter: "blur(4px)" }}
+                          initial={{ opacity: 0, y: 15, scale: 0.8 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.8 }}
                           transition={{ duration: 0.3, type: "spring", stiffness: 400, damping: 25 }}
                           className="absolute -top-14 left-1/2 -translate-x-1/2 whitespace-nowrap px-4 py-2 bg-[var(--text-primary)]/90 backdrop-blur-xl border border-white/10 text-[var(--bg-base)] text-sm font-bold rounded-xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] z-50 pointer-events-none"
                           style={{ transform: 'translateX(-50%)' }}
