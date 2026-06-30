@@ -84,8 +84,8 @@ export default function Skills() {
     <section id="skills" className="py-24 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-[var(--text-primary)] mb-4">Technical Skills</h2>
-          <div className="w-16 h-1 bg-[var(--accent-1)] rounded-full mx-auto" />
+          <h2 className="font-heading text-4xl font-bold tracking-tight text-foreground mb-4">Technical Skills</h2>
+          <div className="w-16 h-1 bg-(--accent-1) rounded-full mx-auto" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -99,7 +99,7 @@ export default function Skills() {
               className="liquid-glass liquid-glass-static p-8"
               style={{ transitionDelay: `${idx * 0.1}s`, overflow: 'visible' }}
             >
-              <h3 className="text-xl font-bold text-[var(--text-primary)] mb-6">{category.title}</h3>
+              <h3 className="text-xl font-bold text-foreground mb-6">{category.title}</h3>
               <div className="flex flex-wrap gap-4">
                 {category.skills.map((skill) => (
                   <motion.div
@@ -109,7 +109,7 @@ export default function Skills() {
                     onMouseEnter={() => setHoveredSkill(skill.name)}
                     onMouseLeave={() => setHoveredSkill(null)}
                   >
-                    <div className="w-14 h-14 rounded-2xl bg-white/50 border border-[var(--glass-border)] shadow-sm flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
+                    <div className="w-14 h-14 rounded-2xl bg-white/50 border border-(--glass-border) shadow-sm flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
                       <skill.icon size={28} style={{ color: skill.color }} className="drop-shadow-sm" />
                     </div>
                     
@@ -121,12 +121,12 @@ export default function Skills() {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.8 }}
                           transition={{ duration: 0.3, type: "spring", stiffness: 400, damping: 25 }}
-                          className="absolute -top-14 left-1/2 -translate-x-1/2 whitespace-nowrap px-4 py-2 bg-[var(--text-primary)]/90 backdrop-blur-xl border border-white/10 text-[var(--bg-base)] text-sm font-bold rounded-xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] z-50 pointer-events-none"
+                          className="absolute -top-14 left-1/2 -translate-x-1/2 whitespace-nowrap px-4 py-2 bg-(--text-primary)/90 backdrop-blur-xl border border-white/10 text-(--bg-base) text-sm font-bold rounded-xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] z-50 pointer-events-none"
                           style={{ transform: 'translateX(-50%)' }}
                         >
                           {skill.name}
                           {/* Elegant tiny triangle */}
-                          <svg className="absolute text-[var(--text-primary)]/90 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255"><polygon className="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                          <svg className="absolute text-foreground/90 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255"><polygon className="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
                         </motion.div>
                       )}
                     </AnimatePresence>

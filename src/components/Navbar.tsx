@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
@@ -17,36 +17,71 @@ export default function Navbar() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [activeLink, setActiveLink] = useState("Home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const targetHash = NAV_LINKS.find(l => l.name === activeLink)?.href;
-    if (targetHash && window.location.hash !== targetHash) {
-      window.history.replaceState(null, '', targetHash);
-    }
-  }, [activeLink]);
+  const tickingRef = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      const screenCenter = window.innerHeight / 2;
-      let current = "";
-      let minDistance = Infinity;
+      if (tickingRef.current) return;
 
-      for (const link of NAV_LINKS) {
-        const el = document.getElementById(link.href.replace('#', ''));
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= screenCenter && rect.bottom >= screenCenter) { current = link.name; break; }
-          const d = Math.abs(rect.top + rect.height / 2 - screenCenter);
-          if (d < minDistance) { minDistance = d; current = link.name; }
-        }
-      }
-      if (current) setActiveLink(prev => prev !== current ? current : prev);
+      tickingRef.current = true;
+      window.requestAnimationFrame(() => {
+        setScrolled(prev => {
+          const next = window.scrollY > 50;
+          return prev === next ? prev : next;
+        });
+        tickingRef.current = false;
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = NAV_LINKS
+      .map(link => ({ ...link, element: document.getElementById(link.href.slice(1)) }))
+      .filter((link): link is (typeof NAV_LINKS)[number] & { element: HTMLElement } => Boolean(link.element));
+
+    if (!("IntersectionObserver" in window) || sections.length === 0) return;
+
+    const visibleSections = new Map<string, number>();
+    const observer = new IntersectionObserver(
+      entries => {
+        for (const entry of entries) {
+          const link = sections.find(section => section.element === entry.target);
+          if (!link) continue;
+
+          if (entry.isIntersecting) {
+            visibleSections.set(link.name, entry.intersectionRatio);
+          } else {
+            visibleSections.delete(link.name);
+          }
+        }
+
+        let nextActive = "";
+        let strongestRatio = 0;
+
+        for (const [name, ratio] of visibleSections) {
+          if (ratio >= strongestRatio) {
+            nextActive = name;
+            strongestRatio = ratio;
+          }
+        }
+
+        if (nextActive) {
+          setActiveLink(prev => prev === nextActive ? prev : nextActive);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-42% 0px -42% 0px",
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      }
+    );
+
+    sections.forEach(section => observer.observe(section.element));
+    return () => observer.disconnect();
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: { name: string; href: string }) => {
@@ -66,7 +101,7 @@ export default function Navbar() {
           <a
             href="#top"
             onClick={(e) => { e.preventDefault(); setActiveLink("Home"); setMobileMenuOpen(false); document.getElementById("top")?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="text-2xl font-bold tracking-tight text-[var(--text-primary)] z-10"
+            className="text-2xl font-bold tracking-tight text-foreground z-10"
           >
             VK.
           </a>
@@ -75,7 +110,7 @@ export default function Navbar() {
           <button
             onClick={() => setMobileMenuOpen(prev => !prev)}
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            className="liquid-glass liquid-glass-circle w-11 h-11 flex items-center justify-center text-[var(--text-primary)]"
+            className="liquid-glass liquid-glass-circle w-11 h-11 flex items-center justify-center text-foreground"
           >
             {mobileMenuOpen ? (
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -118,11 +153,11 @@ export default function Navbar() {
                       onClick={(e) => handleNavClick(e, link)}
                       className={`flex items-center gap-4 px-5 py-3.5 rounded-2xl text-base font-semibold transition-colors duration-150 ${
                         activeLink === link.name
-                          ? "text-[var(--accent-1)] bg-[var(--accent-1)]/10"
-                          : "text-[var(--text-primary)] hover:bg-white/40"
+                          ? "text-(--accent-1) bg-(--accent-1)/10"
+                          : "text-foreground hover:bg-white/40"
                       }`}
                     >
-                      <span className="text-xs font-bold text-[var(--text-muted)] w-5 text-right tabular-nums select-none">
+                      <span className="text-xs font-bold text-(--text-muted) w-5 text-right tabular-nums select-none">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       {link.name}
@@ -137,8 +172,8 @@ export default function Navbar() {
 
       {/* ─── DESKTOP NAVBAR (pill on scroll) ─── */}
       <div
-        className={`hidden md:flex fixed left-0 right-0 z-50 justify-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none ${
-          scrolled ? "top-6" : "top-0"
+        className={`motion-layer hidden md:flex fixed top-0 left-0 right-0 z-50 justify-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none ${
+          scrolled ? "translate-y-6" : "translate-y-0"
         }`}
       >
         <motion.nav
@@ -162,7 +197,7 @@ export default function Navbar() {
               >
                 <a
                   href="#top"
-                  className="text-2xl font-bold tracking-tight text-[var(--text-primary)]"
+                  className="text-2xl font-bold tracking-tight text-foreground"
                   onClick={(e) => {
                     e.preventDefault();
                     setActiveLink("Home");
@@ -186,7 +221,7 @@ export default function Navbar() {
                 onMouseEnter={() => setHoveredLink(link.name)}
                 onMouseLeave={() => setHoveredLink(null)}
                 className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-full ${
-                  scrolled && activeLink !== link.name ? "text-[var(--text-secondary)] hover:text-[var(--text-primary)]" : ""
+                  scrolled && activeLink !== link.name ? "text-(--text-secondary) hover:text-foreground" : ""
                 }`}
                 style={{
                   color: activeLink === link.name ? "var(--accent-1)" : !scrolled ? "var(--text-secondary)" : undefined,

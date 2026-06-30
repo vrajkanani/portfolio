@@ -5,7 +5,7 @@ import {
   SiGithub, SiReact, SiNodedotjs, SiExpress, SiMongodb, SiHtml5, SiCss, 
   SiJavascript, SiPython, SiStreamlit, SiDotnet
 } from "react-icons/si";
-import { Mail, Terminal, Code2, Database } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -22,6 +22,7 @@ const PROJECTS = [
     ],
     featured: true,
     hasLiveDemo: true,
+    liveDemoUrl: "https://club-laminate-e-comm-client.vercel.app",
     githubLinks: [{ label: "", url: "https://github.com/vrajkanani/Club-Laminate-EComm" }],
     codeSnippet: `const clubLaminate = {
   stack: ["MongoDB", "Express", "React", "Node.js"],
@@ -42,6 +43,7 @@ clubLaminate.launch();`,
     ],
     featured: false,
     hasLiveDemo: true,
+    liveDemoUrl: "https://iris-deploy.streamlit.app",
     githubLinks: [{ label: "", url: "https://github.com/vrajkanani/Iris_Deployment" }],
     codeSnippet: `import streamlit as st
 from sklearn import datasets
@@ -65,6 +67,7 @@ st.write("Iris Flower Prediction Model")`,
     ],
     featured: false,
     hasLiveDemo: false,
+    liveDemoUrl: "",
     githubLinks: [
       { label: "Frontend Code", url: "https://github.com/vrajkanani/Task_Management" },
       { label: "Backend API", url: "https://github.com/vrajkanani/TODOAPI" }
@@ -102,8 +105,8 @@ export default function Projects() {
     <section id="projects" className="py-24 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-[var(--text-primary)] mb-4">Featured Projects</h2>
-          <div className="w-16 h-1 bg-[var(--accent-1)] rounded-full mx-auto" />
+          <h2 className="font-heading text-4xl font-bold tracking-tight text-foreground mb-4">Featured Projects</h2>
+          <div className="w-16 h-1 bg-(--accent-1) rounded-full mx-auto" />
         </div>
 
         <motion.div
@@ -113,21 +116,21 @@ export default function Projects() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
-          {PROJECTS.map((project, idx) => (
+          {PROJECTS.map((project) => (
             <motion.div 
               key={project.title}
               variants={itemVars} 
-              className={`liquid-glass flex flex-col group overflow-hidden p-0 border-t border-white/40 rounded-[24px] relative ${
+              className={`liquid-glass flex flex-col group overflow-hidden p-0 border-t border-white/40 rounded-3xl relative ${
                 project.featured ? "md:col-span-2 md:flex-row" : "md:col-span-1"
               }`}
               style={{ transform: "translateZ(0)" }}
             >
               {/* Subtle Glowing Background Blob */}
-              <div className="absolute -top-32 -right-32 w-96 h-96 bg-[var(--accent-1)] opacity-[0.03] rounded-full blur-3xl group-hover:opacity-[0.08] transition-opacity duration-700 pointer-events-none" />
+              <div className="absolute -top-32 -right-32 w-96 h-96 bg-(--accent-1) opacity-[0.03] rounded-full blur-3xl group-hover:opacity-[0.08] transition-opacity duration-700 pointer-events-none" />
 
               {/* Top/Right Code Snippet Visualizer Pane */}
               <div className={`relative bg-[#0d1117] flex flex-col z-20 ${
-                project.featured ? "order-2 md:w-1/2 border-l border-[var(--glass-border)]" : "order-1 w-full border-b border-[var(--glass-border)] h-56"
+                project.featured ? "order-2 md:w-1/2 border-l border-(--glass-border)" : "order-1 w-full border-b border-(--glass-border) h-56"
               }`}>
                 {/* MacOS Window Controls */}
                 <div className="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/5">
@@ -171,8 +174,8 @@ export default function Projects() {
                 project.featured ? "order-1 md:w-1/2 md:p-10" : "order-2"
               }`}>
                 <div>
-                  <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-3">{project.title}</h3>
-                  <p className="text-[var(--text-secondary)] mb-6 text-sm md:text-base leading-relaxed">
+                  <h3 className="text-2xl font-bold text-foreground mb-3">{project.title}</h3>
+                  <p className="text-(--text-secondary) mb-6 text-sm md:text-base leading-relaxed">
                     {project.description}
                   </p>
                   
@@ -185,7 +188,7 @@ export default function Projects() {
                         onMouseEnter={() => setHoveredTech(`${project.title}-${tech.name}`)}
                         onMouseLeave={() => setHoveredTech(null)}
                       >
-                        <div className="w-10 h-10 rounded-xl bg-[var(--chip-bg)] border border-[var(--glass-border)] flex items-center justify-center transition-transform duration-300 group-hover/tech:-translate-y-1 shadow-sm">
+                        <div className="w-10 h-10 rounded-xl bg-(--chip-bg) border border-(--glass-border) flex items-center justify-center transition-transform duration-300 group-hover/tech:-translate-y-1 shadow-sm">
                           <tech.icon size={20} style={{ color: tech.color }} />
                         </div>
 
@@ -197,10 +200,10 @@ export default function Projects() {
                               animate={{ opacity: 1, y: 0, scale: 1 }}
                               exit={{ opacity: 0, y: 10, scale: 0.8 }}
                               transition={{ duration: 0.3, type: "spring", stiffness: 400, damping: 25 }}
-                              className="absolute -top-14 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1.5 bg-[var(--text-primary)]/90 backdrop-blur-xl border border-white/10 text-[var(--bg-base)] text-xs font-bold rounded-lg shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] z-20 pointer-events-none"
+                              className="absolute -top-14 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1.5 bg-(--text-primary)/90 backdrop-blur-xl border border-white/10 text-(--bg-base) text-xs font-bold rounded-lg shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] z-20 pointer-events-none"
                             >
                               {tech.name}
-                              <svg className="absolute text-[var(--text-primary)]/90 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255"><polygon className="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                              <svg className="absolute text-foreground/90 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255"><polygon className="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -209,20 +212,20 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-6 border-t border-[var(--glass-border)]">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-6 border-t border-(--glass-border)">
                   {project.hasLiveDemo ? (
                     <>
-                      <a href="#" className="flex-1 liquid-glass-pill py-2.5 text-center text-sm font-bold text-[var(--accent-1)] bg-[var(--accent-1)]/10 border border-[var(--accent-1)]/30 hover:bg-[var(--accent-1)]/20 hover:border-[var(--accent-1)]/50 transition-all shadow-lg shadow-[var(--accent-1)]/10">
+                      <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 liquid-glass-pill py-2.5 text-center text-sm font-bold text-(--accent-1) bg-(--accent-1)/10 border border-(--accent-1)/30 hover:bg-(--accent-1)/20 hover:border-(--accent-1)/50 transition-all shadow-lg shadow-(--accent-1)/10">
                         Live Demo
                       </a>
-                      <a href={project.githubLinks[0].url} target="_blank" rel="noopener noreferrer" title="View Source" className="w-10 h-10 liquid-glass-circle flex items-center justify-center text-[var(--text-primary)] hover:text-[var(--accent-1)] transition-colors bg-[var(--chip-bg)]">
+                      <a href={project.githubLinks[0].url} target="_blank" rel="noopener noreferrer" title="View Source" className="w-10 h-10 liquid-glass-circle flex items-center justify-center text-foreground hover:text-(--accent-1) transition-colors bg-(--chip-bg)">
                         <SiGithub size={20} />
                       </a>
                     </>
                   ) : (
                     <>
                       {project.githubLinks.map(link => (
-                        <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 liquid-glass-pill px-4 py-2.5 text-center text-sm font-bold text-[var(--text-primary)] bg-[var(--chip-bg)] border border-[var(--glass-border)] hover:text-[var(--accent-1)] hover:border-[var(--accent-1)]/30 transition-all shadow-sm">
+                        <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 liquid-glass-pill px-4 py-2.5 text-center text-sm font-bold text-foreground bg-(--chip-bg) border border-(--glass-border) hover:text-(--accent-1) hover:border-(--accent-1)/30 transition-all shadow-sm">
                           <SiGithub size={18} className="shrink-0" />
                           <span className="whitespace-nowrap">{link.label}</span>
                         </a>

@@ -1,6 +1,5 @@
 "use client";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
 import Image from "next/image";
 import { Mail, Download } from "lucide-react";
 import Link from "next/link";
@@ -14,13 +13,13 @@ const ALL_SKILLS = [
 const MarqueeRow = ({ items, reverse = false, speed = 20 }: { items: string[], reverse?: boolean, speed?: number }) => (
   <div className="flex w-max">
     <motion.div
-      className="flex gap-4 pr-4"
+      className="motion-layer flex gap-4 pr-4"
       animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
       transition={{ duration: speed, repeat: Infinity, ease: "linear" }}
       style={{ willChange: "transform", transform: "translateZ(0)" }}
     >
       {[...items, ...items, ...items].map((tech, i) => (
-        <span key={`${tech}-${i}`} className="liquid-glass liquid-glass-pill px-4 py-2 text-sm font-semibold text-[var(--text-secondary)] whitespace-nowrap block shadow-sm">
+        <span key={`${tech}-${i}`} className="liquid-glass liquid-glass-pill px-4 py-2 text-sm font-semibold text-(--text-secondary) whitespace-nowrap block shadow-sm">
           {tech}
         </span>
       ))}
@@ -29,8 +28,6 @@ const MarqueeRow = ({ items, reverse = false, speed = 20 }: { items: string[], r
 );
 
 export default function Hero() {
-  const orbitRef = useRef<HTMLDivElement>(null);
-
   // Parallax setup for photo frame tilt
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -79,26 +76,26 @@ export default function Hero() {
 
         {/* Left: Text Content */}
         <motion.div
-          className="flex flex-col items-start gap-6"
+          className="motion-layer flex flex-col items-start gap-6"
           variants={containerVars}
           initial="hidden"
           animate="show"
         >
           {/* Availability chip */}
           <motion.div variants={itemVars}>
-            <span className="liquid-glass liquid-glass-pill px-4 py-1.5 text-sm font-medium text-[var(--chip-text)] inline-block">
+            <span className="liquid-glass liquid-glass-pill px-4 py-1.5 text-sm font-medium text-(--chip-text) inline-block">
               Available for Full-Time Roles · 2026 Grad
             </span>
           </motion.div>
 
           <motion.h1
             variants={itemVars}
-            className="text-5xl md:text-6xl lg:text-[80px] leading-[1.1] font-bold tracking-[-0.02em] text-[var(--text-primary)]"
+            className="text-5xl md:text-6xl lg:text-[80px] leading-[1.1] font-bold tracking-[-0.02em] text-foreground"
           >
-            Hi, I'm <span className="text-frosted-glass">Vraj Kanani.</span>
+            Hi, I&apos;m <span className="text-frosted-glass">Vraj Kanani.</span>
           </motion.h1>
 
-          <motion.p variants={itemVars} className="text-lg text-[var(--text-secondary)] max-w-lg leading-relaxed">
+          <motion.p variants={itemVars} className="text-lg text-(--text-secondary) max-w-lg leading-relaxed">
             Full-Stack Engineer building scalable, race-condition-safe backend systems with Node.js, PostgreSQL &amp; React.
           </motion.p>
 
@@ -135,9 +132,9 @@ export default function Hero() {
             {/* Secondary: liquid glass */}
             <Link
               href="#contact"
-              className="liquid-glass liquid-glass-pill px-6 py-3 font-semibold text-[var(--text-primary)] flex items-center gap-2"
+              className="liquid-glass liquid-glass-pill px-6 py-3 font-semibold text-foreground flex items-center gap-2"
             >
-              Let's Connect
+              Let&apos;s Connect
             </Link>
           </motion.div>
 
@@ -146,20 +143,20 @@ export default function Hero() {
             <a
               href="https://linkedin.com/in/vrajkanani"
               target="_blank" rel="noreferrer"
-              className="liquid-glass liquid-glass-circle w-12 h-12 flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent-1)] transition-colors"
+              className="liquid-glass liquid-glass-circle w-12 h-12 flex items-center justify-center text-(--text-secondary) hover:text-(--accent-1) transition-colors"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
             <a
               href="https://github.com/vrajkanani"
               target="_blank" rel="noreferrer"
-              className="liquid-glass liquid-glass-circle w-12 h-12 flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              className="liquid-glass liquid-glass-circle w-12 h-12 flex items-center justify-center text-(--text-secondary) hover:text-foreground transition-colors"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
             </a>
             <a
               href="mailto:vrajkanani@example.com"
-              className="liquid-glass liquid-glass-circle w-12 h-12 flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent-3)] transition-colors"
+              className="liquid-glass liquid-glass-circle w-12 h-12 flex items-center justify-center text-(--text-secondary) hover:text-(--accent-3) transition-colors"
             >
               <Mail size={19} />
             </a>
@@ -168,7 +165,7 @@ export default function Hero() {
 
         {/* Right: Photo & Orbit */}
         <motion.div
-          className="relative flex items-center justify-center h-[520px]"
+          className="motion-layer relative flex items-center justify-center h-[520px]"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -178,7 +175,7 @@ export default function Hero() {
         >
           {/* Liquid Glass Photo Frame */}
           <motion.div
-            className="relative z-10 w-[240px] h-[310px] md:w-[270px] md:h-[350px]"
+            className="motion-layer relative z-10 w-[240px] h-[310px] md:w-[270px] md:h-[350px]"
             style={{ rotateX, rotateY }}
           >
             {/* Outer liquid-glass rim */}

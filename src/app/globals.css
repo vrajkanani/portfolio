@@ -34,14 +34,20 @@
   --font-sans: var(--font-inter);
 }
 
+.font-heading {
+  font-family: "Playwrite NZ", cursive !important;
+}
+
 body {
   background: var(--bg-gradient);
-  background-attachment: fixed;
+  background-attachment: scroll;
   color: var(--text-primary);
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
 }
 
 /* Custom text selection */
@@ -74,6 +80,7 @@ body {
   /* crisp top edge */
   overflow: hidden;
   border-radius: 28px;
+  transform: translateZ(0);
 }
 
 /* Specular highlight arc — curved light on top rim like a water droplet */
@@ -153,6 +160,8 @@ body {
   transition: background-color 0.3s ease, transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  transform: translateZ(0);
+  contain: paint;
 }
 
 .glass-panel::before {
@@ -189,6 +198,31 @@ body {
     0 8px 32px rgba(31, 38, 135, 0.10);
   position: relative;
   overflow: hidden;
+  transform: translateZ(0);
+  contain: paint;
+}
+
+section[id]:not(#top) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 760px;
+}
+
+.motion-layer {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+.fixed-visual-layer {
+  isolation: isolate;
+  contain: strict;
+  transform: translateZ(0);
+}
+
+.loader-spinner {
+  animation: loaderSpin 0.9s linear infinite;
+  transform-origin: center;
+  will-change: transform;
 }
 
 .glass-panel-strong::before {
@@ -249,6 +283,7 @@ body {
     animation: none !important;
   }
 }
+
 
 /* ============================================
    LIQUID GLASS SCROLLBAR
@@ -326,5 +361,11 @@ body {
 
   100% {
     transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes loaderSpin {
+  to {
+    transform: rotate(360deg);
   }
 }
