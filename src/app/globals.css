@@ -31,11 +31,16 @@
 @theme inline {
   --color-background: var(--bg-base);
   --color-foreground: var(--text-primary);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-figtree);
 }
 
 .font-heading {
-  font-family: "Playwrite NZ", cursive !important;
+  font-family: var(--font-playwrite-nz), "Playwrite NZ", cursive !important;
+}
+
+/* Utility alias — same as .font-heading */
+.font-playwrite {
+  font-family: var(--font-playwrite-nz), "Playwrite NZ", cursive !important;
 }
 
 body {
