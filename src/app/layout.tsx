@@ -153,12 +153,11 @@ export const metadata: Metadata = {
   category: "technology",
 
   // ── Search Console Verification ──────────────────────────────────────────────
-  // Preserved from original layout.tsx <meta name="google-site-verification">
   verification: {
     google: "UcMHjAkStQ-8qnq6lL3L4rHmFvTkxcyHEV8cMOpKqXA",
-    // other: {
-    //   "msvalidate.01": ["YOUR_BING_VERIFICATION_CODE"],
-    // },
+    other: {
+      "msvalidate.01": ["36658D1D4996E11D820681B450139D61"],
+    },
   },
 };
 
