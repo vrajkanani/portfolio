@@ -32,7 +32,7 @@ export default function Contact() {
           href="mailto:vraj.kanani@example.com" 
           className="inline-block text-xl md:text-3xl font-bold text-foreground hover:text-(--accent-1) transition-colors duration-300 mb-12 relative group"
         >
-          vraj.kanani@example.com
+          kananivraj733@gmail.com
           <span className="absolute -bottom-2 left-0 w-full h-1 bg-(--accent-1)/30 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
         </a>
 
