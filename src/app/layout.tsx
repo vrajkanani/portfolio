@@ -61,7 +61,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  applicationName: "Vraj Kanani Portfolio",
+  applicationName: "Vraj Kanani",
 
   title: {
     // Includes key tech keywords while staying readable
@@ -116,7 +116,7 @@ export const metadata: Metadata = {
     lastName: "Kanani",
     locale: "en_US",
     url: BASE_URL,
-    siteName: "Vraj Kanani Portfolio",
+    siteName: "Vraj Kanani",
     title: "Vraj Kanani | Full-Stack Engineer — Node.js, React & PostgreSQL",
     description:
       "Full-Stack Engineer building scalable, production-grade backend systems with Node.js, PostgreSQL & React. 2026 graduate actively seeking full-time roles.",
@@ -172,6 +172,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${figtree.variable} ${playwriteNZ.variable} antialiased scroll-smooth`}
+      data-scroll-behavior="smooth"
     >
       {/*
         No manual <link> font tags needed:

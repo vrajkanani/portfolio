@@ -22,51 +22,27 @@
  */
 
 import type { MetadataRoute } from "next";
+import { PROJECTS } from "@/data/projects";
 
 const BASE_URL = "https://portfolio-vraj-kanani.vercel.app";
-// 🚀 TODO: Update to custom domain once live
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  return [
-    // ── Homepage (single-page portfolio) ──────────────────────────────────────
-    {
-      url: BASE_URL,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 1.0,
-    },
+  const homeRoute = {
+    url: BASE_URL,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 1.0,
+  };
 
-    // ── Uncomment as you create these pages ───────────────────────────────────
+  const projectRoutes = PROJECTS.map((project) => ({
+    url: `${BASE_URL}/projects/${project.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
 
-    // {
-    //   url: `${BASE_URL}/projects`,
-    //   lastModified: now,
-    //   changeFrequency: "weekly",
-    //   priority: 0.9,
-    // },
-
-    // Individual project pages — huge SEO opportunity for long-tail keywords
-    // {
-    //   url: `${BASE_URL}/projects/realtime-chat`,
-    //   lastModified: new Date("2025-03-15"),
-    //   changeFrequency: "monthly",
-    //   priority: 0.8,
-    // },
-    // {
-    //   url: `${BASE_URL}/projects/payment-gateway`,
-    //   lastModified: new Date("2025-04-01"),
-    //   changeFrequency: "monthly",
-    //   priority: 0.8,
-    // },
-
-    // Blog index — if you add a blog
-    // {
-    //   url: `${BASE_URL}/blog`,
-    //   lastModified: now,
-    //   changeFrequency: "weekly",
-    //   priority: 0.8,
-    // },
-  ];
+  return [homeRoute, ...projectRoutes];
 }
+

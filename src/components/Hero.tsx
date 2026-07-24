@@ -1,6 +1,7 @@
 "use client";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
+import vrajAvatar from "../../public/images/avatars/vraj.jpg";
 import { Mail, Download } from "lucide-react";
 import Link from "next/link";
 
@@ -186,8 +187,9 @@ export default function Hero() {
               {/* Inner image */}
               <div className="relative w-full h-full rounded-[29px] overflow-hidden bg-gray-100">
                 <Image
-                  src="/images/avatars/vraj.jpg"
+                  src={vrajAvatar}
                   alt="Vraj Kanani"
+                  placeholder="blur"
                   fill
                   sizes="(max-width: 768px) 240px, 270px"
                   className="object-cover"

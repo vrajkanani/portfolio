@@ -1,89 +1,11 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  SiGithub, SiReact, SiNodedotjs, SiExpress, SiMongodb, SiHtml5, SiCss, 
-  SiJavascript, SiPython, SiStreamlit, SiDotnet
-} from "react-icons/si";
-import { Mail } from "lucide-react";
+import { SiGithub } from "react-icons/si";
+import Link from "next/link";
+import { PROJECTS } from "@/data/projects";
 
-const PROJECTS = [
-  {
-    title: "Club Laminate",
-    description: "A comprehensive web application featuring a rich interactive user interface. Built with a full-stack MERN architecture and integrated with MailJS for seamless communication.",
-    tech: [
-      { name: "React", icon: SiReact, color: "#61DAFB" },
-      { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-      { name: "Express", icon: SiExpress, color: "#000000" },
-      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-      { name: "MailJS", icon: Mail, color: "#F4B400" },
-      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-    ],
-    featured: true,
-    hasLiveDemo: true,
-    liveDemoUrl: "https://club-laminate-e-comm-client.vercel.app",
-    githubLinks: [{ label: "", url: "https://github.com/vrajkanani/Club-Laminate-EComm" }],
-    codeSnippet: `const clubLaminate = {
-  stack: ["MongoDB", "Express", "React", "Node.js"],
-  features: ["Interactive UI", "MailJS Integration"],
-  status: "Deployed successfully",
-  launch: () => console.log("Welcome to Club Laminate!")
-};
-
-clubLaminate.launch();`,
-    snippetLang: "javascript"
-  },
-  {
-    title: "Iris Flower Prediction",
-    description: "A machine learning dashboard that predicts Iris flower species based on sepal and petal measurements using an interactive Streamlit interface.",
-    tech: [
-      { name: "Python", icon: SiPython, color: "#3776AB" },
-      { name: "Streamlit", icon: SiStreamlit, color: "#FF4B4B" },
-    ],
-    featured: false,
-    hasLiveDemo: true,
-    liveDemoUrl: "https://iris-deploy.streamlit.app",
-    githubLinks: [{ label: "", url: "https://github.com/vrajkanani/Iris_Deployment" }],
-    codeSnippet: `import streamlit as st
-from sklearn import datasets
-
-# Load Iris dataset
-iris = datasets.load_iris()
-X = iris.data
-y = iris.target
-
-st.write("Iris Flower Prediction Model")`,
-    snippetLang: "python"
-  },
-  {
-    title: "Task Management System",
-    description: "A robust To-Do list and task management application built with ASP.NET MVC, featuring full CRUD operations and a clean HTML/CSS frontend.",
-    tech: [
-      { name: "ASP.NET", icon: SiDotnet, color: "#512BD4" },
-      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
-      { name: "CSS3", icon: SiCss, color: "#1572B6" },
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-    ],
-    featured: false,
-    hasLiveDemo: false,
-    liveDemoUrl: "",
-    githubLinks: [
-      { label: "Frontend Code", url: "https://github.com/vrajkanani/Task_Management" },
-      { label: "Backend API", url: "https://github.com/vrajkanani/TODOAPI" }
-    ],
-    codeSnippet: `public class TaskController : Controller
-{
-    private readonly AppDbContext _context;
-
-    public async Task<IActionResult> Index()
-    {
-        return View(await _context.Tasks.ToListAsync());
-    }
-}`,
-    snippetLang: "csharp"
-  },
-];
+// Projects data moved to src/data/projects.ts
 
 export default function Projects() {
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
@@ -102,7 +24,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-24 relative z-10">
+    <section id="projects" className="py-24 relative z-10 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16 text-center">
           <h2 className="font-heading text-4xl font-bold tracking-tight text-foreground mb-4">Featured Projects</h2>
@@ -213,6 +135,9 @@ export default function Projects() {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-6 border-t border-(--glass-border)">
+                  <Link href={`/projects/${project.slug}`} className="flex-1 liquid-glass-pill py-2.5 text-center text-sm font-bold text-(--bg-base) bg-(--accent-1) hover:opacity-90 transition-opacity shadow-lg shadow-(--accent-1)/20">
+                    View Case Study
+                  </Link>
                   {project.hasLiveDemo ? (
                     <>
                       <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 liquid-glass-pill py-2.5 text-center text-sm font-bold text-(--accent-1) bg-(--accent-1)/10 border border-(--accent-1)/30 hover:bg-(--accent-1)/20 hover:border-(--accent-1)/50 transition-all shadow-lg shadow-(--accent-1)/10">

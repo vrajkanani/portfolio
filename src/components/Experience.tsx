@@ -46,7 +46,7 @@ export default function Experience() {
                       <span className="text-foreground">Internship:</span> Oct 2025 - Apr 2026
                     </p>
                     <a 
-                      href="/images/certificates/Internship_Certificate_Vraj.pdf" 
+                      href="/images/certificates/Internship_Certificate_Vraj_page-0001.jpg" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-(--accent-1) hover:text-(--accent-2) transition-colors"

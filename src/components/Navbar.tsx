@@ -1,15 +1,18 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 const NAV_LINKS = [
-  { name: "Home", href: "#top" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Education", href: "#education" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/#top" },
+  { name: "About", href: "/#about" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Education", href: "/#education" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Certifications", href: "/#certificates" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -38,9 +41,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const pathname = usePathname();
+  const router = useRouter();
+
   useEffect(() => {
+    if (pathname !== "/") return;
+
     const sections = NAV_LINKS
-      .map(link => ({ ...link, element: document.getElementById(link.href.slice(1)) }))
+      .map(link => ({ ...link, element: document.getElementById(link.href.replace("/#", "")) }))
       .filter((link): link is (typeof NAV_LINKS)[number] & { element: HTMLElement } => Boolean(link.element));
 
     if (!("IntersectionObserver" in window) || sections.length === 0) return;
@@ -70,7 +78,16 @@ export default function Navbar() {
         }
 
         if (nextActive) {
-          setActiveLink(prev => prev === nextActive ? prev : nextActive);
+          setActiveLink(prev => {
+            if (prev === nextActive) return prev;
+            return nextActive;
+          });
+          // Update URL hash outside of setState to avoid side-effects during render
+          const link = sections.find(s => s.name === nextActive);
+          if (link) {
+            const hash = link.href.replace('/', '');
+            window.history.replaceState(null, '', hash);
+          }
         }
       },
       {
@@ -84,12 +101,33 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  const scrollToSection = (targetId: string) => {
+    const el = document.getElementById(targetId);
+    if (!el) return;
+    // 80px accounts for the fixed navbar on both mobile and desktop
+    const NAVBAR_HEIGHT = 80;
+    const y = el.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  };
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: { name: string; href: string }) => {
+    if (pathname !== "/") {
+      setMobileMenuOpen(false);
+      return;
+    }
+
     e.preventDefault();
     setActiveLink(link.name);
+
+    const targetId = link.href.replace('/#', '');
+    const href = link.href.replace('/', '');
+
+    // Close menu first, then scroll after animation completes (~260ms)
     setMobileMenuOpen(false);
-    document.getElementById(link.href.replace('#', ''))?.scrollIntoView({ behavior: 'smooth' });
-    window.history.pushState(null, '', link.href);
+    setTimeout(() => {
+      scrollToSection(targetId);
+      window.history.pushState(null, '', href);
+    }, 260);
   };
 
   return (
@@ -98,13 +136,20 @@ export default function Navbar() {
       <div className="fixed top-0 left-0 right-0 z-50 md:hidden">
         <div className="flex items-center justify-between px-5 py-4">
           {/* Logo always visible on mobile */}
-          <a
-            href="#top"
-            onClick={(e) => { e.preventDefault(); setActiveLink("Home"); setMobileMenuOpen(false); document.getElementById("top")?.scrollIntoView({ behavior: 'smooth' }); }}
+          <Link
+            href="/#top"
+            onClick={(e) => { 
+              if (pathname === "/") {
+                e.preventDefault(); 
+                setActiveLink("Home"); 
+                setMobileMenuOpen(false); 
+                document.getElementById("top")?.scrollIntoView({ behavior: 'smooth' }); 
+              }
+            }}
             className="text-2xl font-bold tracking-tight text-foreground z-10"
           >
             VK.
-          </a>
+          </Link>
 
           {/* Hamburger button */}
           <button
@@ -147,12 +192,12 @@ export default function Navbar() {
               >
                 <nav className="flex flex-col p-2">
                   {NAV_LINKS.map((link, i) => (
-                    <a
+                    <Link
                       key={link.name}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link)}
                       className={`flex items-center gap-4 px-5 py-3.5 rounded-2xl text-base font-semibold transition-colors duration-150 ${
-                        activeLink === link.name
+                        activeLink === link.name && pathname === "/"
                           ? "text-(--accent-1) bg-(--accent-1)/10"
                           : "text-foreground hover:bg-white/40"
                       }`}
@@ -161,7 +206,7 @@ export default function Navbar() {
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       {link.name}
-                    </a>
+                    </Link>
                   ))}
                 </nav>
               </motion.div>
@@ -195,18 +240,20 @@ export default function Navbar() {
                 exit={{ opacity: 0, scale: 0.8, filter: "blur(4px)" }}
                 transition={{ duration: 0.3 }}
               >
-                <a
-                  href="#top"
+                <Link
+                  href="/#top"
                   className="text-2xl font-bold tracking-tight text-foreground"
                   onClick={(e) => {
-                    e.preventDefault();
-                    setActiveLink("Home");
-                    document.getElementById("top")?.scrollIntoView({ behavior: 'smooth' });
-                    window.history.pushState(null, '', "#top");
+                    if (pathname === "/") {
+                      e.preventDefault();
+                      setActiveLink("Home");
+                      document.getElementById("top")?.scrollIntoView({ behavior: 'smooth' });
+                      window.history.pushState(null, '', "#top");
+                    }
                   }}
                 >
                   VK.
-                </a>
+                </Link>
               </motion.div>
             )}
           </AnimatePresence>
@@ -214,7 +261,7 @@ export default function Navbar() {
           {/* Desktop Nav Links */}
           <div className="flex items-center gap-1">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link)}
@@ -224,7 +271,7 @@ export default function Navbar() {
                   scrolled && activeLink !== link.name ? "text-(--text-secondary) hover:text-foreground" : ""
                 }`}
                 style={{
-                  color: activeLink === link.name ? "var(--accent-1)" : !scrolled ? "var(--text-secondary)" : undefined,
+                  color: (activeLink === link.name && pathname === "/") ? "var(--accent-1)" : !scrolled ? "var(--text-secondary)" : undefined,
                 }}
               >
                 <AnimatePresence>
@@ -246,7 +293,7 @@ export default function Navbar() {
                   )}
                 </AnimatePresence>
 
-                {activeLink === link.name && (
+                {activeLink === link.name && pathname === "/" && (
                   <motion.span
                     layoutId="nav-active-dot"
                     className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
@@ -255,7 +302,7 @@ export default function Navbar() {
                   />
                 )}
                 <span className="relative z-10">{link.name}</span>
-              </a>
+              </Link>
             ))}
           </div>
         </motion.nav>

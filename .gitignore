@@ -71,3 +71,7 @@ private/
 # ── TypeScript ───────────────────────────────────
 *.tsbuildinfo
 next-env.d.ts
+
+# ── AI Config / Metadata ─────────────────────────
+AGENTS.md
+CLAUDE.md

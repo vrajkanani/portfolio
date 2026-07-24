@@ -105,7 +105,8 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${BASE_URL}/#website`,
-  name: "Vraj Kanani Portfolio",
+  name: "Vraj Kanani",
+  alternateName: ["Vraj Kanani Portfolio", "Vraj Kanani - Full Stack Engineer"],
   url: BASE_URL,
   description:
     "Portfolio of Vraj Kanani — Full-Stack Engineer specializing in scalable Node.js backends and modern web development.",

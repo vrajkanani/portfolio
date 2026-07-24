@@ -3,37 +3,20 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Medal, ExternalLink } from "lucide-react";
 
+import certPython from "../../public/images/certificates/Python for Data Science_page-0001.jpg";
+import certPowerBi from "../../public/images/certificates/Power BI for Beginners_page-0001.jpg";
+import certTableau from "../../public/images/certificates/Introduction to Tableau_page-0001.jpg";
+import certProjectM from "../../public/images/certificates/certificate of project m_page-0001.jpg";
+import certJquery from "../../public/images/certificates/certificate of jquery_page-0001.jpg";
+import certInternship from "../../public/images/certificates/Internship_Certificate_Vraj_page-0001.jpg";
+
 const CERTIFICATES = [
-  {
-    title: "Python for Data Science",
-    issuer: "NPTEL",
-    image: "/images/certificates/Python for Data Science_page-0001.jpg",
-  },
-  {
-    title: "Power BI for Beginners",
-    issuer: "Great Learning",
-    image: "/images/certificates/Power BI for Beginners_page-0001.jpg",
-  },
-  {
-    title: "Introduction to Tableau",
-    issuer: "Great Learning",
-    image: "/images/certificates/Introduction to Tableau_page-0001.jpg",
-  },
-  {
-    title: "Project Management",
-    issuer: "Great Learning",
-    image: "/images/certificates/certificate of project m_page-0001.jpg",
-  },
-  {
-    title: "jQuery",
-    issuer: "Great Learning",
-    image: "/images/certificates/certificate of jquery_page-0001.jpg",
-  },
-  {
-    title: "Software Engineering Internship",
-    issuer: "Scaloy Technology",
-    image: "/images/certificates/Internship_Certificate_Vraj_page-0001.jpg",
-  },
+  { title: "Python for Data Science", issuer: "NPTEL", image: certPython },
+  { title: "Power BI for Beginners", issuer: "Great Learning", image: certPowerBi },
+  { title: "Introduction to Tableau", issuer: "Great Learning", image: certTableau },
+  { title: "Project Management", issuer: "Great Learning", image: certProjectM },
+  { title: "jQuery", issuer: "Great Learning", image: certJquery },
+  { title: "Software Engineering Internship", issuer: "Scaloy Technology", image: certInternship },
 ];
 
 export default function Certificates() {
@@ -55,7 +38,7 @@ export default function Certificates() {
   };
 
   return (
-    <section id="certificates" className="py-24 relative z-10">
+    <section id="certificates" className="py-24 relative z-10 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16 text-center">
           <h2 className="font-heading text-4xl font-bold tracking-tight text-foreground mb-4">Certifications & Achievements</h2>
@@ -74,7 +57,7 @@ export default function Certificates() {
             <motion.a 
               key={cert.title}
               variants={itemVars} 
-              href={cert.image}
+              href={cert.image.src}
               target="_blank"
               rel="noopener noreferrer"
               className="liquid-glass flex flex-col group cursor-pointer overflow-hidden p-0 border-t border-white/40 rounded-3xl"
@@ -84,6 +67,7 @@ export default function Certificates() {
                 <Image 
                   src={cert.image} 
                   alt={cert.title} 
+                  placeholder="blur"
                   fill 
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority={index === 0}
