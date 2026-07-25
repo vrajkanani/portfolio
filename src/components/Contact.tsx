@@ -29,7 +29,7 @@ export default function Contact() {
         </p>
         
         <a 
-          href="mailto:vraj.kanani@example.com" 
+          href="mailto:kananivraj733@gmail.com" 
           className="inline-block text-xl md:text-3xl font-bold text-foreground hover:text-(--accent-1) transition-colors duration-300 mb-12 relative group"
         >
           kananivraj733@gmail.com
