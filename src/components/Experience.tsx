@@ -65,6 +65,36 @@ export default function Experience() {
               <div className="mb-6">
                 <h5 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-(--accent-1)" />
+                  Logistics & Fleet Management Platform (React + Node.js + PostgreSQL)
+                </h5>
+                <ul className="list-none space-y-2 text-(--text-secondary) ml-4">
+                  <li className="flex gap-3">
+                    <span className="text-(--text-muted) mt-1 text-sm">▹</span>
+                    <span>Engineered a <strong>real-time geo-spatial dispatch engine</strong> using a <strong>dynamic, step-based radial search algorithm</strong> to optimize load-to-driver matching.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-(--text-muted) mt-1 text-sm">▹</span>
+                    <span>Built a complex <strong>B2B2C architecture</strong> (Factories, Fleet Owners, Drivers) with <strong>hierarchical data isolation</strong>, <strong>role-based access control</strong>, and automated GSTIN/PAN compliance verification.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-(--text-muted) mt-1 text-sm">▹</span>
+                    <span>Integrated <strong>Socket.IO</strong> with <strong>Redis Pub/Sub</strong> for sub-second state synchronization, <strong>live GPS fleet tracking</strong>, and high-throughput ride broadcasting.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-(--text-muted) mt-1 text-sm">▹</span>
+                    <span>Developed a <strong>robust financial ledger</strong> using <strong>Prisma ORM</strong> to handle <strong>dynamic fare calculations</strong>, wallet ecosystems, automated PDF invoicing, and multi-tiered referral payouts.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-(--text-muted) mt-1 text-sm">▹</span>
+                    <span>Delivered a highly performant, multi-lingual client interface using <strong>React 19</strong>, <strong>Redux Toolkit</strong>, and <strong>Vite</strong>, optimizing render cycles for live maps and complex data grids.</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Project 2 */}
+              <div className="mb-6">
+                <h5 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-(--accent-2)" />
                   Inventory & Order Management System (MERN + Next.js)
                 </h5>
                 <ul className="list-none space-y-2 text-(--text-secondary) ml-4">
@@ -87,11 +117,11 @@ export default function Experience() {
                 </ul>
               </div>
 
-              {/* Project 2 */}
+              {/* Project 3 */}
               <div>
                 <h5 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-(--accent-2)" />
-                  Cab Sharing Platform (Backend)
+                  <span className="w-2 h-2 rounded-full bg-(--accent-1)" />
+                  Cab Sharing Platform (Backend + Admin Panel)
                 </h5>
                 <ul className="list-none space-y-2 text-(--text-secondary) ml-4">
                   <li className="flex gap-3">

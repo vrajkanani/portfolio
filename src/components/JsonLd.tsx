@@ -149,8 +149,8 @@ const profilePageSchema = {
     "@id": `${BASE_URL}/#person`,
   },
   // portfolio's actual launch date
-  dateCreated: "2025-01-01",
-  dateModified: new Date().toISOString().split("T")[0], // Auto-updates at build time
+  dateCreated: "2025-01-01T00:00:00+00:00",
+  dateModified: new Date().toISOString(), // Auto-updates at build time, full ISO 8601 datetime
   author: {
     "@id": `${BASE_URL}/#person`,
   },

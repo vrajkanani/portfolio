@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: project.title,
-    description: project.description,
+    description: project.metaDescription,
     keywords: [
       ...project.tech.map((t) => t.name),
       "Vraj Kanani",
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url,
       siteName: "Vraj Kanani",
       title: `${project.title} | Vraj Kanani`,
-      description: project.description,
+      description: project.metaDescription,
       locale: "en_US",
       images: [
         {
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     twitter: {
       card: "summary_large_image",
       title: `${project.title} | Vraj Kanani`,
-      description: project.description,
+      description: project.metaDescription,
       images: [{ url: "/og-image.png", alt: `${project.title} – project by Vraj Kanani` }],
     },
   };
@@ -92,7 +92,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     "@type": "Article",
     "@id": `${projectUrl}#article`,
     headline: `${project.title} – Project by Vraj Kanani`,
-    description: project.description,
+    description: project.metaDescription,
     url: projectUrl,
     image: {
       "@type": "ImageObject",
@@ -124,7 +124,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     "@type": "SoftwareApplication",
     "@id": `${projectUrl}#software`,
     name: project.title,
-    description: project.description,
+    description: project.metaDescription,
     applicationCategory: "WebApplication",
     operatingSystem: "Web Browser",
     author: {

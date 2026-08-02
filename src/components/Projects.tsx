@@ -134,28 +134,28 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-6 border-t border-(--glass-border)">
-                  <Link href={`/projects/${project.slug}`} className="flex-1 liquid-glass-pill py-2.5 text-center text-sm font-bold text-(--bg-base) bg-(--accent-1) hover:opacity-90 transition-opacity shadow-lg shadow-(--accent-1)/20">
+                <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-6 border-t border-(--glass-border)">
+                  <Link href={`/projects/${project.slug}`} className="w-full sm:w-auto flex-1 liquid-glass-pill py-2.5 text-center text-sm font-bold text-(--bg-base) bg-(--accent-1) hover:opacity-90 transition-opacity shadow-lg shadow-(--accent-1)/20 whitespace-nowrap">
                     View Case Study
                   </Link>
                   {project.hasLiveDemo ? (
-                    <>
-                      <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 liquid-glass-pill py-2.5 text-center text-sm font-bold text-(--accent-1) bg-(--accent-1)/10 border border-(--accent-1)/30 hover:bg-(--accent-1)/20 hover:border-(--accent-1)/50 transition-all shadow-lg shadow-(--accent-1)/10">
+                    <div className="flex items-center w-full sm:w-auto sm:flex-1 gap-3 sm:gap-4">
+                      <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 liquid-glass-pill py-2.5 text-center text-sm font-bold text-(--accent-1) bg-(--accent-1)/10 border border-(--accent-1)/30 hover:bg-(--accent-1)/20 hover:border-(--accent-1)/50 transition-all shadow-lg shadow-(--accent-1)/10 whitespace-nowrap">
                         Live Demo
                       </a>
-                      <a href={project.githubLinks[0].url} target="_blank" rel="noopener noreferrer" title="View Source" className="w-10 h-10 liquid-glass-circle flex items-center justify-center text-foreground hover:text-(--accent-1) transition-colors bg-(--chip-bg)">
+                      <a href={project.githubLinks[0].url} target="_blank" rel="noopener noreferrer" title="View Source" className="shrink-0 w-11 h-11 sm:w-10 sm:h-10 liquid-glass-circle flex items-center justify-center text-foreground hover:text-(--accent-1) transition-colors bg-(--chip-bg)">
                         <SiGithub size={20} />
                       </a>
-                    </>
+                    </div>
                   ) : (
-                    <>
+                    <div className="flex flex-col sm:flex-row w-full sm:w-auto sm:flex-1 gap-3 sm:gap-4">
                       {project.githubLinks.map(link => (
-                        <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 liquid-glass-pill px-4 py-2.5 text-center text-sm font-bold text-foreground bg-(--chip-bg) border border-(--glass-border) hover:text-(--accent-1) hover:border-(--accent-1)/30 transition-all shadow-sm">
+                        <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 liquid-glass-pill px-4 py-2.5 text-center text-sm font-bold text-foreground bg-(--chip-bg) border border-(--glass-border) hover:text-(--accent-1) hover:border-(--accent-1)/30 transition-all shadow-sm">
                           <SiGithub size={18} className="shrink-0" />
                           <span className="whitespace-nowrap">{link.label}</span>
                         </a>
                       ))}
-                    </>
+                    </div>
                   )}
                 </div>
               </div>

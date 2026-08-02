@@ -37,6 +37,12 @@ export interface ProjectData {
   slug: string;
   title: string;
   description: string;
+  /**
+   * Short SEO-only description — used for <meta name="description">,
+   * Open Graph, and Twitter cards. Keep this between 120–160 characters.
+   * The longer `description` field above is still used for on-page display.
+   */
+  metaDescription: string;
   tech: TechStack[];
   featured: boolean;
   hasLiveDemo: boolean;
@@ -57,6 +63,8 @@ export const PROJECTS: ProjectData[] = [
     title: "Club Laminate",
     description:
       "A full-stack MERN e-commerce platform for a plywood products supplier - featuring a customer storefront, REST API, and a separate admin dashboard for complete product catalog management.",
+    metaDescription:
+      "Full-stack MERN e-commerce platform for a plywood supplier — customer storefront, REST API, and admin dashboard for catalog management.",
     tech: [
       { name: "React", icon: SiReact, color: "#61DAFB" },
       { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
@@ -101,6 +109,8 @@ clubLaminate.launch();`,
     title: "Iris Flower Prediction",
     description:
       "An end-to-end ML deployment project - a scikit-learn classifier trained on the Iris dataset, serialized as a model file, and served as a live interactive web app on Streamlit Cloud.",
+    metaDescription:
+      "End-to-end ML deployment: a scikit-learn Iris classifier, serialized as a model file and served as a live interactive app on Streamlit Cloud.",
     tech: [
       { name: "Python", icon: SiPython, color: "#3776AB" },
       { name: "Streamlit", icon: SiStreamlit, color: "#FF4B4B" },
@@ -141,6 +151,8 @@ st.write("Iris Flower Prediction Model")`,
     title: "Task Management System",
     description:
       "A two-repo task management system - an ASP.NET Core REST API with subtasks, priority filtering, history tracking and role-based access, consumed by a separate ASP.NET MVC frontend.",
+    metaDescription:
+      "Two-repo task management system: an ASP.NET Core REST API with subtasks, priority filtering, and role-based access, consumed by an MVC frontend.",
     tech: [
       { name: "ASP.NET", icon: SiDotnet, color: "#512BD4" },
       { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
